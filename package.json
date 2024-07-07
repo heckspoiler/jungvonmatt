@@ -9,10 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^9.108.3",
+    "@react-three/fiber": "^8.16.8",
+    "@studio-freight/react-lenis": "^0.0.47",
+    "dotenv": "^16.4.5",
     "gsap": "npm:@gsap/shockingly@^3.12.5",
+    "leva": "^0.9.35",
     "next": "14.2.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "three": "^0.166.1"
   },
   "devDependencies": {
     "eslint": "^8",
