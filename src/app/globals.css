@@ -1,10 +1,50 @@
-:root {}
+@font-face {
+  font-family: "Neue Montreal Regular";
+  src: url("/fonts/Neue_Montreal/PPNeueMontreal-Regular.woff2") format("woff2"),
+    url("/fonts/Neue_Montreal/PPNeueMontreal-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Montreal Bold";
+  src: url("/fonts/Neue_Montreal/PPNeueMontreal-Bold.woff2") format("woff2"),
+    url("/fonts/Neue_Montreal/PPNeueMontreal-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Montreal Light";
+  src: url("/fonts/Neue_Montreal/PPNeueMontreal-Light.woff2") format("woff2"),
+    url("/fonts/Neue_Montreal/PPNeueMontreal-Light.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Montreal Regular";
+  src: url("/fonts/Neue_Montreal/PPNeueMontreal-Regular.woff2") format("woff2"),
+    url("/fonts/Neue_Montreal/PPNeueMontreal-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --main-font: "Neue Montreal Regular";
+  --bold-font: "Neue Montreal Bold";
+  --light-font: "Neue Montreal Light";
+  --regular-font: "Neue Montreal Regular";
+  --black-new: "#1C1C1C";
+  --white-new: "rgb(238, 238, 238)"
+}
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  color: white;
+  color: rgb(238, 238, 238);
+  font-family: var(--regular-font)
 }
 
 html,
@@ -15,13 +55,15 @@ body {
 
 body {
   min-height: 100vh;
-  background: black;
-  background: radial-gradient(rgb(48, 48, 48), black);
+  background: #1C1C1C;
+  background: radial-gradient(rgb(48, 48, 48), #1C1C1C);
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   text-transform: uppercase;
+  font-weight: 100;
+
 }
 
 a {

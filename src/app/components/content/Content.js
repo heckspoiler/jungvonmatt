@@ -7,5 +7,9 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
 export default function Content() {
-  return <div>Content</div>;
+  return (
+    <div>
+      <h1>Hey Jung von Matt!</h1>
+    </div>
+  );
 }
