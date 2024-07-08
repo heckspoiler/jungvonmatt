@@ -1,0 +1,32 @@
+.Header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: end;
+    pointer-events: all;
+}
+
+.Header ul {
+    display: flex;
+    gap: 4rem;
+    padding: 1em 4em 1em 0em;
+    align-items: flex-end;
+}
+
+.Header li {
+    text-transform: uppercase;
+    list-style-type: none;
+}
+
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 768px) and (max-width: 1120px) {}
