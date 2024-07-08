@@ -3,10 +3,10 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import Model from './Model';
-
+import styles from './Scene.module.css';
 export default function Scene() {
   return (
-    <div>
+    <div className={styles.Canvas}>
       <Canvas
         style={{
           height: '100vh',
