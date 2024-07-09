@@ -16,6 +16,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // varia imports
 import { isMobileStore } from '../../../../stores/isMobileStore';
+import SquareSvg from './TitleSection/svgContents/SquareSvg';
+import AnotherSquareSvg from './TitleSection/svgContents/AnotherSquareSvg';
 
 gsap.registerPlugin(useGSAP, SplitText, DrawSVGPlugin, ScrollTrigger);
 
@@ -42,6 +44,8 @@ export default function Content() {
 
   return (
     <section className={styles.Main}>
+      <AnotherSquareSvg />
+      <SquareSvg />
       <StartSection
         styles={styles}
         containerRef={containerRef}

@@ -2,6 +2,7 @@ import React from 'react';
 import UpperContainer from './UpperContainer';
 import LowerContainer from './LowerContainer';
 import SquareSvg from './svgContents/SquareSvg';
+import AnotherSquareSvg from './svgContents/AnotherSquareSvg';
 
 export default function StartSection({
   styles,
@@ -18,7 +19,6 @@ export default function StartSection({
           isMobile={isMobile}
         />
       </div>
-      <SquareSvg />
       <div>
         <LowerContainer
           styles={styles}

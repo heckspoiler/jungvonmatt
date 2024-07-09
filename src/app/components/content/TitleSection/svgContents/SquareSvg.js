@@ -17,7 +17,7 @@ export default function SquareSvg() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        markers: true,
+        // markers: true,
         start: 'top bottom',
         scrub: 0.8,
         end: 'bottom top',
@@ -26,7 +26,7 @@ export default function SquareSvg() {
     });
 
     tl.to(svgRef.current, {
-      scale: 4,
+      scale: 8,
       y: -800,
       x: 800,
       rotateX: 1800,

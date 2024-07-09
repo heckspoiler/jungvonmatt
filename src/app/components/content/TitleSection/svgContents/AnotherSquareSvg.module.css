@@ -2,10 +2,10 @@
     position: absolute;
     height: fit-content;
     width: fit-content;
-    transform: translateY(80em);
+    transform: translateY(110vh);
     z-index: -1;
     top: 0;
-    left: 0;
+    right: 0;
 }
 
 .Container svg {
