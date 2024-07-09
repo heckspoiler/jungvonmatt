@@ -50,7 +50,7 @@ export default function LowerContainer({ styles, secondContainer }) {
   return (
     <div className={styles.LowerContainer}>
       <div className={styles.LowerContent} ref={secondContainer}>
-        <h1 ref={textRef}>I think we should work together!</h1>
+        <h1 ref={textRef}>I would like to work for you</h1>
       </div>
     </div>
   );

@@ -5,7 +5,9 @@ export default function AboutSection() {
   const containerRef = useRef();
   return (
     <section className={styles.Main} ref={containerRef}>
-      <h1>AboutSection</h1>
+      <div>
+        <h1>Helloo</h1>
+      </div>
     </section>
   );
 }

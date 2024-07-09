@@ -26,3 +26,22 @@
     z-index: -1;
     /* This places the pseudo-element behind the content */
 }
+
+.Main h1 {
+    color: var(--black-new)
+}
+
+
+
+
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 768px) and (max-width: 1120px) {}
