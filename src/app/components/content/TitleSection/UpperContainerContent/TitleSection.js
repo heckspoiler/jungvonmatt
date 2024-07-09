@@ -57,12 +57,12 @@ export default function TitleSection({ styles, containerRef, isMobile }) {
       const scrollTl2 = gsap.timeline({
         scrollTrigger: {
           trigger: arrowRef.current,
-          start: 'top 14.3%',
+          start: 'top 18.3%',
           end: 'bottom 8%',
           pin: true,
           toggleActions: 'play none none reverse',
           scrub: 0.3,
-          //   markers: true,
+          // markers: true,
           pinSpacing: false,
         },
       });

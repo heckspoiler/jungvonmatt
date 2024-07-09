@@ -71,8 +71,8 @@
 }
 
 *::selection {
-  background-color: var(--black-new);
-  color: var(--white-new)
+  background-color: var(--accent-yellow);
+  color: var(--black-new)
 }
 
 html,

@@ -53,7 +53,6 @@ export default function RightTitleSection({ styles, containerRef }) {
 
       scrollTl.to(boxRef.current, {
         y: -600,
-        scale: 2,
         stagger: 0.03,
         duration: 0.1,
         ease: 'circ.in',

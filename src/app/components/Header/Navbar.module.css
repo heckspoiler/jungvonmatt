@@ -5,6 +5,7 @@
     display: flex;
     justify-content: flex-end;
     pointer-events: all;
+    z-index: 100;
 }
 
 .Header ul {
