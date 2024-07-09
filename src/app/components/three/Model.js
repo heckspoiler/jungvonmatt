@@ -1,19 +1,39 @@
 'use client';
 import React, { useRef, useEffect } from 'react';
+
+/* THREE */
+import { useThree, useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
 import {
   useGLTF,
   OrbitControls,
   Environment,
   useEnvironment,
 } from '@react-three/drei';
-import { useThree, useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
+
+/* gsap */
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Model() {
   const { viewport, camera, scene } = useThree();
   const meshRef = useRef();
   const { nodes } = useGLTF('/assets/neuuu.glb');
   const timeRef = useRef(0);
+  const scrollProgressRef = useRef(0);
+
+  useGSAP(() => {
+    ScrollTrigger.create({
+      start: 0,
+      end: 'max',
+      onUpdate: (self) => {
+        scrollProgressRef.current = self.progress;
+      },
+    });
+  });
 
   useEffect(() => {
     if (meshRef.current) {
@@ -29,6 +49,7 @@ export default function Model() {
       timeRef.current += delta;
       meshRef.current.rotation.z += 0.1 * delta;
       meshRef.current.position.y += Math.sin(timeRef.current) * 0.001;
+      meshRef.current.rotation.z = scrollProgressRef.current * Math.PI;
     }
   });
 

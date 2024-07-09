@@ -1,0 +1,7 @@
+.Main {
+    margin-top: 80vh;
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgba(209, 209, 209, 0.5);
+    backdrop-filter: blur(10px);
+}

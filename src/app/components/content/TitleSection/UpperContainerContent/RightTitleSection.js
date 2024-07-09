@@ -25,7 +25,6 @@ export default function RightTitleSection({ styles, containerRef }) {
       });
 
       const tl = gsap.timeline({ paused: false });
-      const tl2 = gsap.timeline({ paused: false });
 
       tl.from(boxRef.current, {
         y: 100,
@@ -38,15 +37,37 @@ export default function RightTitleSection({ styles, containerRef }) {
         stagger: 0.02,
         ease: 'circ.out',
       });
+
+      const scrollTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: boxRef.current,
+          start: 'top 42%',
+          end: 'bottom top',
+          pin: true,
+          toggleActions: 'play none none reverse',
+          scrub: 0.3,
+          // markers: true,
+          pinSpacing: false,
+        },
+      });
+
+      scrollTl.to(boxRef.current, {
+        y: -600,
+        scale: 2,
+        stagger: 0.03,
+        duration: 0.1,
+        ease: 'circ.in',
+      });
     },
+
     { scope: containerRef }
   );
 
   return (
-    <div className={styles.Content} ref={containerRef}>
+    <div className={styles.Content}>
       <div className={styles.BlackBGContainer} ref={boxRef}>
         <h1 className={styles.BlackBG} ref={textRef}>
-          New Chance
+          New Opportunity
         </h1>
       </div>
     </div>

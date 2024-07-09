@@ -44,12 +44,25 @@ export default function TitleSection({ styles, containerRef, isMobile }) {
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: boxRef.current,
-          start: 'top 14.4%',
+          start: 'top 14.3%',
           end: 'bottom top',
           pin: true,
           toggleActions: 'play none none reverse',
           scrub: 0.3,
-          markers: true,
+          //   markers: true,
+          pinSpacing: false,
+        },
+      });
+
+      const scrollTl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: arrowRef.current,
+          start: 'top 14.3%',
+          end: 'bottom 8%',
+          pin: true,
+          toggleActions: 'play none none reverse',
+          scrub: 0.3,
+          //   markers: true,
           pinSpacing: false,
         },
       });
@@ -61,7 +74,13 @@ export default function TitleSection({ styles, containerRef, isMobile }) {
         ease: 'circ.in',
         transformOrigin: '50% 50% -50',
       });
+      scrollTl2.to(arrowRef.current, {
+        rotationZ: -90,
+        duration: 0.2,
+        ease: 'circ.in',
+      });
     },
+
     { scope: containerRef }
   );
 
@@ -69,7 +88,7 @@ export default function TitleSection({ styles, containerRef, isMobile }) {
     <>
       <div className={styles.Content} ref={boxRef}>
         <h1 className={styles.MainTitle} ref={textRef}>
-          Missed Opportunity
+          Missed Chance
         </h1>
       </div>
       <div className={styles.Content}>
