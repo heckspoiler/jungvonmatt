@@ -67,12 +67,12 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  color: var(--black-new);
-  font-family: var(--regular-font)
+  font-family: var(--regular-font);
 }
 
-h1::selection {
-  background-color: var(--accent-yellow);
+*::selection {
+  background-color: var(--black-new);
+  color: var(--white-new)
 }
 
 html,
@@ -85,7 +85,6 @@ body {
 
 body {
   min-height: 100vh;
-
 }
 
 h1 {

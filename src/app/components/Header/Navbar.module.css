@@ -3,7 +3,7 @@
     top: 0;
     right: 0;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     pointer-events: all;
 }
 
@@ -17,6 +17,34 @@
 .Header li {
     text-transform: uppercase;
     list-style-type: none;
+    position: relative;
+    overflow: hidden;
+    padding: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.4s cubic-bezier(0.23, 1, 0.320, 1)
+}
+
+.Header li:hover {
+    color: var(--white-new)
+}
+
+.Header li::before {
+    background-color: var(--black-new);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    content: "";
+    z-index: -1;
+    transform: translateX(-110%);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.320, 1)
+}
+
+.Header li:hover::before {
+
+    transform: translateX(0);
+
 }
 
 

@@ -4,6 +4,8 @@ import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import Model from './Model';
 import styles from './Scene.module.css';
+import { Environment, Lightformer } from '@react-three/drei';
+
 export default function Scene() {
   return (
     <div className={styles.Canvas}>
@@ -43,7 +45,7 @@ export default function Scene() {
           penumbra={1}
           castShadow
         />
-
+        <Environment preset="city" />
         <Model />
       </Canvas>
     </div>

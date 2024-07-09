@@ -3,56 +3,47 @@ import React, { useRef, useEffect } from 'react';
 import {
   useGLTF,
   OrbitControls,
-  MeshTransmissionMaterial,
-  MeshWobbleMaterial,
-  RoundedBox,
+  Environment,
+  useEnvironment,
 } from '@react-three/drei';
 import { useThree, useFrame } from '@react-three/fiber';
-import { useControls } from 'leva';
+import * as THREE from 'three';
 
 export default function Model() {
-  const { viewport, camera } = useThree();
+  const { viewport, camera, scene } = useThree();
   const meshRef = useRef();
-  const { nodes } = useGLTF('/assets/jvm.glb');
-  const useControls = false; // Set this to true to re-enable controls
+  const { nodes } = useGLTF('/assets/neuuu.glb');
+  const timeRef = useRef(0);
 
-  const materialProps = useControls
-    ? useControls('Material', {
-        thickness: { value: 0.2, min: 0, max: 3, step: 0.05 },
-        roughness: { value: 0.4, min: 0, max: 1, step: 0.01 },
-        transmission: { value: 0.8, min: 0, max: 1, step: 0.1 },
-        ior: { value: 0.5, min: 0, max: 3, step: 0.1 },
-        chromaticAberration: { value: 0.92, min: 0, max: 1 },
-        backside: { value: true },
-      })
-    : {
-        thickness: 0.2,
-        roughness: 0.4,
-        transmission: 0.8,
-        ior: 0.5,
-        chromaticAberration: 0.92,
-        backside: true,
-      };
+  useEffect(() => {
+    if (meshRef.current) {
+      meshRef.current.position.y = -0.4;
+      meshRef.current.rotation.x = 1.5;
+      meshRef.current.rotation.y = 0;
+      meshRef.current.rotation.z = 0;
+    }
+  }, [scene]);
 
   useFrame((_, delta) => {
-    meshRef.current.rotation.x += 0.2 * delta;
-    meshRef.current.rotation.y += 0.2 * delta;
-    meshRef.current.rotation.z += 0.2 * delta;
+    if (meshRef.current) {
+      timeRef.current += delta;
+      meshRef.current.rotation.z += 0.1 * delta;
+      meshRef.current.position.y += Math.sin(timeRef.current) * 0.001;
+    }
   });
 
   return (
     <group>
-      <mesh ref={meshRef}>
-        <torusKnotGeometry args={[1, 0.3, 100, 16]} />
-        <MeshTransmissionMaterial {...materialProps} />
+      <mesh ref={meshRef} geometry={nodes.Curve002.geometry} scale={1.13}>
+        <meshPhysicalMaterial
+          metalness={1}
+          roughness={0.2}
+          envMapIntensity={0.2}
+          clearcoat={1}
+          clearcoatRoughness={0.7}
+          color={new THREE.Color('darkgrey')}
+        />
       </mesh>
-      {/* <mesh
-        ref={meshRef}
-        geometry={nodes.Curve001.geometry}
-        rotation={[Math.PI / 2, 0, 0]} // Rotate 90 degrees around X-axis
-      >
-        <MeshTransmissionMaterial {...materialProps} />
-      </mesh> */}
 
       <OrbitControls
         minAzimuthAngle={-Math.PI / 4}
@@ -61,6 +52,9 @@ export default function Model() {
         maxPolarAngle={(Math.PI * 3) / 4}
         enableZoom={false}
       />
+
+      <ambientLight intensity={0.8} />
+      <directionalLight position={[5, 5, 5]} intensity={1} />
     </group>
   );
 }
