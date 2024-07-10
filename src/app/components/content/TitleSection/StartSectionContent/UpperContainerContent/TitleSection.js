@@ -31,12 +31,12 @@ export default function TitleSection({ styles, isMobile, containerRef }) {
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: boxRef.current,
-          start: 'top 14.3%',
+          start: 'top 12.3%',
           end: 'bottom top',
           pin: true,
           toggleActions: 'play none none reverse',
           scrub: 0.3,
-          //   markers: true,
+          // markers: true,
           pinSpacing: false,
         },
       });

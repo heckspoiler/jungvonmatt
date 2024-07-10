@@ -58,11 +58,13 @@ export default function Model() {
       <mesh ref={meshRef} geometry={nodes.Curve002.geometry} scale={1.13}>
         <meshPhysicalMaterial
           metalness={1}
-          roughness={0.3}
-          envMapIntensity={0.9}
+          roughness={0.8}
+          envMapIntensity={0.1}
           clearcoat={1}
-          clearcoatRoughness={0.1}
-          color={new THREE.Color('darkgrey')}
+          clearcoatRoughness={0.9}
+          color={new THREE.Color('blue')}
+          transparent={false} // Ensure it's not transparent
+          opacity={1} // Full opacity
         />
       </mesh>
 
@@ -73,7 +75,7 @@ export default function Model() {
         maxPolarAngle={(Math.PI * 3) / 4}
         enableZoom={false}
       />
-
+      <Environment preset="city" />
       <ambientLight intensity={0.8} />
       <directionalLight position={[5, 5, 5]} intensity={1} />
     </group>

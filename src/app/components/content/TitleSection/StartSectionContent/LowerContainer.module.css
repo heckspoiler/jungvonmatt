@@ -24,6 +24,8 @@
     font-size: 4rem;
     text-transform: uppercase;
     font-weight: bold;
+    color: var(--accent-orange);
+    text-shadow: 2px 2px 1px black;
 }
 
 

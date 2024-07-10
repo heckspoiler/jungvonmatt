@@ -21,7 +21,7 @@ export default function AboutSection() {
 
       ScrollTrigger.create({
         trigger: section,
-        markers: true,
+        // markers: true,
         start: 'top 90%',
         end: 'bottom top',
 
