@@ -18,6 +18,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { isMobileStore } from '../../../../stores/isMobileStore';
 import SquareSvg from './TitleSection/svgContents/SquareSvg';
 import AnotherSquareSvg from './TitleSection/svgContents/AnotherSquareSvg';
+import CubeSvg from './TitleSection/svgContents/CubeSvg';
 
 gsap.registerPlugin(useGSAP, SplitText, DrawSVGPlugin, ScrollTrigger);
 
@@ -45,6 +46,7 @@ export default function Content() {
     <section className={styles.Main}>
       <AnotherSquareSvg />
       <SquareSvg />
+      <CubeSvg />
       <StartSection
         styles={styles}
         isMobile={isMobile}
