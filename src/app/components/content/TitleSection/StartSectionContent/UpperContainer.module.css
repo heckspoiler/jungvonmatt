@@ -1,19 +1,7 @@
-.Main {
+.UpperContainerSection {
     position: relative;
-}
-
-.TitleContainer {
     display: flex;
-    width: fit-content;
-    flex-direction: row;
-    height: 23rem;
-    z-index: 2;
-    padding: 4em;
-    width: 100%;
-    margin-top: 4em;
 }
-
-
 
 .Content {
     overflow: hidden;

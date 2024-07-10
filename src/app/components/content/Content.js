@@ -27,20 +27,7 @@ export default function Content() {
   const isMobile = isMobileStore().isMobile;
 
   // refs
-  const containerRef = useRef();
   const secondContainer = useRef();
-
-  useEffect(() => {
-    const handleLoad = () => {
-      console.log('utzjgkzgjkzjggjkh');
-    };
-
-    window.addEventListener('load', handleLoad);
-
-    return () => {
-      window.removeEventListener('load', handleLoad);
-    };
-  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -60,7 +47,6 @@ export default function Content() {
       <SquareSvg />
       <StartSection
         styles={styles}
-        containerRef={containerRef}
         isMobile={isMobile}
         secondContainer={secondContainer}
       />

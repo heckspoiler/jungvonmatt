@@ -9,24 +9,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(useGSAP, SplitText, DrawSVGPlugin, ScrollTrigger);
 
-export default function TitleSection({ styles, containerRef, isMobile }) {
+export default function TitleSection({ styles, isMobile, containerRef }) {
   const textRef = useRef();
   const arrowRef = useRef();
   const boxRef = useRef();
 
-  useEffect(() => {
-    console.log(containerRef.current);
-  }, [onload]);
-
   useGSAP(
     () => {
-      if (
-        !textRef.current ||
-        !arrowRef.current ||
-        !containerRef.current ||
-        !boxRef.current
-      )
-        return;
+      if (!textRef.current || !containerRef.current || !boxRef.current) return;
       const split = new SplitText(textRef.current, { type: 'chars' });
       const tl = gsap.timeline();
 
@@ -36,15 +26,7 @@ export default function TitleSection({ styles, containerRef, isMobile }) {
         stagger: 0.05,
         duration: 0.6,
         ease: 'circ.out',
-      }).from(
-        arrowRef.current,
-        {
-          scale: 0,
-          duration: 0.4,
-          ease: 'back.out(1.7)',
-        },
-        '-=0.3'
-      );
+      });
 
       const scrollTl = gsap.timeline({
         scrollTrigger: {
@@ -59,19 +41,6 @@ export default function TitleSection({ styles, containerRef, isMobile }) {
         },
       });
 
-      const scrollTl2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: arrowRef.current,
-          start: 'top 18.3%',
-          end: 'bottom 8%',
-          pin: true,
-          toggleActions: 'play none none reverse',
-          scrub: 0.3,
-          // markers: true,
-          pinSpacing: false,
-        },
-      });
-
       scrollTl.to(split.chars, {
         y: -100,
         stagger: 0.03,
@@ -79,28 +48,18 @@ export default function TitleSection({ styles, containerRef, isMobile }) {
         ease: 'circ.in',
         transformOrigin: '50% 50% -50',
       });
-      scrollTl2.to(arrowRef.current, {
-        rotationZ: -90,
-        duration: 0.2,
-        ease: 'circ.in',
-      });
     },
 
     { scope: containerRef }
   );
 
   return (
-    <>
+    <div ref={containerRef}>
       <div className={styles.Content} ref={boxRef}>
         <h1 className={styles.MainTitle} ref={textRef}>
           Missed Chance
         </h1>
       </div>
-      <div className={styles.Content}>
-        <h1 className={styles.Arrow} ref={arrowRef}>
-          →
-        </h1>
-      </div>
-    </>
+    </div>
   );
 }

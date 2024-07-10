@@ -17,7 +17,6 @@ export default function RightTitleSection({ styles }) {
   useGSAP(
     () => {
       if (!textRef.current || !boxRef.current || !containerRef) {
-        console.log('Refs not ready');
         return;
       }
 
@@ -29,13 +28,13 @@ export default function RightTitleSection({ styles }) {
 
       tl.from(boxRef.current, {
         lazy: false,
-        y: 100,
+        y: -1000,
         duration: 0.6,
         ease: 'circ.out',
         delay: 0.8,
       }).from(split.chars, {
         lazy: false,
-        y: 100,
+        y: 0,
         duration: 0.6,
         stagger: 0.02,
         ease: 'circ.out',
@@ -66,14 +65,12 @@ export default function RightTitleSection({ styles }) {
   );
 
   return (
-    <section ref={containerRef}>
-      <div className={styles.Content}>
-        <div className={styles.BlackBGContainer} ref={boxRef}>
-          <h1 className={styles.BlackBG} ref={textRef}>
-            New Opportunity
-          </h1>
-        </div>
+    <div className={styles.Content} ref={containerRef}>
+      <div className={styles.BlackBGContainer} ref={boxRef}>
+        <h1 className={styles.BlackBG} ref={textRef}>
+          New Opportunity
+        </h1>
       </div>
-    </section>
+    </div>
   );
 }

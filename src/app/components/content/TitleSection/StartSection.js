@@ -1,18 +1,9 @@
-import React, { useEffect } from 'react';
-import UpperContainer from './UpperContainer';
-import LowerContainer from './LowerContainer';
-import SquareSvg from './svgContents/SquareSvg';
-import AnotherSquareSvg from './svgContents/AnotherSquareSvg';
+import React, { useEffect, useRef } from 'react';
+import UpperContainer from './StartSectionContent/UpperContainer';
+import LowerContainer from './StartSectionContent/LowerContainer';
 
-export default function StartSection({
-  styles,
-  containerRef,
-  isMobile,
-  secondContainer,
-}) {
-  useEffect(() => {
-    console.log(containerRef.current, 'From startseröjlkasfd');
-  }, [onload]);
+export default function StartSection({ styles, isMobile, secondContainer }) {
+  const containerRef = useRef();
   return (
     <>
       <div className={styles.TitleContainer} ref={containerRef}>
