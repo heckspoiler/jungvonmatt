@@ -9,10 +9,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(useGSAP, SplitText, DrawSVGPlugin, ScrollTrigger);
 
-export default function RightTitleSection({ styles }) {
+export default function RightTitleSection({ styles, containerRef }) {
   const textRef = useRef();
   const boxRef = useRef();
-  const containerRef = useRef();
 
   useGSAP(
     () => {
@@ -27,37 +26,12 @@ export default function RightTitleSection({ styles }) {
       const tl = gsap.timeline({ paused: false });
 
       tl.from(boxRef.current, {
-        lazy: false,
-        y: -1000,
-        duration: 0.6,
-        ease: 'circ.out',
+        y: 100,
         delay: 0.8,
       }).from(split.chars, {
-        lazy: false,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.02,
-        ease: 'circ.out',
-      });
-
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: boxRef.current,
-          start: 'top 42%',
-          end: 'bottom top',
-          pin: true,
-          toggleActions: 'play none none reverse',
-          scrub: 0.3,
-          markers: true,
-          pinSpacing: false,
-        },
-      });
-
-      scrollTl.to(boxRef.current, {
-        y: -600,
-        stagger: 0.03,
-        duration: 0.1,
-        ease: 'circ.in',
+        y: 100,
+        stagger: 0.05,
+        delay: 0.1,
       });
     },
 
@@ -65,7 +39,7 @@ export default function RightTitleSection({ styles }) {
   );
 
   return (
-    <div className={styles.Content} ref={containerRef}>
+    <div className={styles.RightContainer}>
       <div className={styles.BlackBGContainer} ref={boxRef}>
         <h1 className={styles.BlackBG} ref={textRef}>
           New Opportunity

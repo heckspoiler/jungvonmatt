@@ -5,18 +5,14 @@
 
 .Content {
     overflow: hidden;
-    border: 1px solid black;
 }
 
-
-
-.TitleContainer h1 {
-    font-size: 4em;
+.Content h1 {
+    font-size: 4rem;
     pointer-events: all;
     overflow: hidden;
     z-index: 10;
 }
-
 
 .Arrow {
     transform: rotate(45deg);
@@ -25,16 +21,20 @@
     padding: 1rem;
 }
 
+.RightContainer {
+    height: fit-content;
+    align-self: flex-end;
+    overflow: hidden;
+}
+
 .BlackBGContainer {
     background-color: var(--black-new);
+
 }
 
 .BlackBG {
-
     color: var(--white-new);
     font-size: 4rem;
-    pointer-events: all;
-    overflow: hidden;
     padding: 0em 0.2em;
 }
 
@@ -44,43 +44,6 @@
     align-items: center;
 }
 
-.Content:nth-of-type(3) {
-    display: flex;
-    align-items: flex-end;
-}
-
-.Circle {
-    height: 1rem;
-    width: 1rem;
-    background-color: var(--black-new);
-    border-radius: 50%;
-}
-
-.LowerContainer {
-    padding: 4rem 3rem 3rem 3rem;
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40vh;
-    overflow: hidden;
-}
-
-.LowerContent {
-    max-width: 80rem;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-
-}
-
-.LowerContent h1 {
-    font-size: 6rem;
-    text-transform: uppercase;
-}
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {}
