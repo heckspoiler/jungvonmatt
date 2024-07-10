@@ -32,14 +32,14 @@ export default function Arrow({ styles, isMobile, containerRef }) {
 
       ScrollTrigger.create({
         trigger: containerRef.current,
-        start: 'top 5.3%',
+        start: 'top 10.3%',
         end: 'bottom top',
         scrub: 0.3,
-        // markers: true,
+        markers: true,
         animation: gsap.fromTo(
           arrowRef.current,
           { y: 0, rotation: 40 },
-          { y: -100, duration: 0.6, ease: 'circ.out', rotation: -90 }
+          { y: -50, duration: 0.6, ease: 'circ.out', rotation: -90 }
         ),
       });
     },
