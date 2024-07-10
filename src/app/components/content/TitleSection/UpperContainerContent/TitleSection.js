@@ -14,13 +14,14 @@ export default function TitleSection({ styles, containerRef, isMobile }) {
   const arrowRef = useRef();
   const boxRef = useRef();
 
-  useEffect(() => {
-    console.log('is Mobile: ', isMobile);
-  });
-
   useGSAP(
     () => {
-      if (!textRef.current || !arrowRef.current || !containerRef.current)
+      if (
+        !textRef.current ||
+        !arrowRef.current ||
+        !containerRef.current ||
+        !boxRef.current
+      )
         return;
       const split = new SplitText(textRef.current, { type: 'chars' });
       const tl = gsap.timeline();
