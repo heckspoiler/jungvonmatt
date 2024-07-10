@@ -40,25 +40,25 @@ export default function RightTitleSection({ styles, containerRef }) {
         ease: 'circ.out',
       });
 
-      // const scrollTl = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: boxRef.current,
-      //     start: 'top 42%',
-      //     end: 'bottom top',
-      //     pin: true,
-      //     toggleActions: 'play none none reverse',
-      //     scrub: 0.3,
-      //     // markers: true,
-      //     pinSpacing: false,
-      //   },
-      // });
+      const scrollTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: boxRef.current,
+          start: 'top 42%',
+          end: 'bottom top',
+          pin: true,
+          toggleActions: 'play none none reverse',
+          scrub: 0.3,
+          markers: true,
+          pinSpacing: false,
+        },
+      });
 
-      // scrollTl.to(boxRef.current, {
-      //   y: -600,
-      //   stagger: 0.03,
-      //   duration: 0.1,
-      //   ease: 'circ.in',
-      // });
+      scrollTl.to(boxRef.current, {
+        y: -600,
+        stagger: 0.03,
+        duration: 0.1,
+        ease: 'circ.in',
+      });
     },
 
     { scope: containerRef }
