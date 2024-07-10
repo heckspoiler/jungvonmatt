@@ -31,6 +31,7 @@ export default function TitleSection({ styles, containerRef, isMobile }) {
       const tl = gsap.timeline();
 
       tl.from(split.chars, {
+        lazy: false,
         y: 150,
         stagger: 0.05,
         duration: 0.6,
