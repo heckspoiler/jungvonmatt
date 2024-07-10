@@ -16,7 +16,6 @@ export default function AnotherSquareSvg() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        markers: true,
         start: 'top bottom',
         scrub: 0.8,
         end: 'bottom top',
