@@ -52,7 +52,7 @@ export default function LowerContainer({ secondContainer }) {
     <div className={styles.LowerContainer}>
       <div className={styles.LowerContent} ref={secondContainer}>
         <h1 ref={textRef}>
-          I would like to <br /> work for you ㋡
+          I would like to <br /> work for you
         </h1>
       </div>
     </div>

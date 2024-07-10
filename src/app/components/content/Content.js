@@ -42,6 +42,10 @@ export default function Content() {
     return () => window.removeEventListener('resize', handleResize);
   }, [isMobile, setIsMobile]);
 
+  useGSAP(() => {
+    gsap.to(window, { duration: 0, scrollTo: 0 });
+  });
+
   return (
     <section className={styles.Main}>
       <AnotherSquareSvg />

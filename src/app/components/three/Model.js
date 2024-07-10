@@ -58,10 +58,10 @@ export default function Model() {
       <mesh ref={meshRef} geometry={nodes.Curve002.geometry} scale={1.13}>
         <meshPhysicalMaterial
           metalness={1}
-          roughness={0.2}
-          envMapIntensity={0.2}
+          roughness={0.3}
+          envMapIntensity={0.9}
           clearcoat={1}
-          clearcoatRoughness={0.7}
+          clearcoatRoughness={0.1}
           color={new THREE.Color('darkgrey')}
         />
       </mesh>

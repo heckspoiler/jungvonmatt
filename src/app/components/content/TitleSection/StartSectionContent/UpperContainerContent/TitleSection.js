@@ -48,6 +48,16 @@ export default function TitleSection({ styles, isMobile, containerRef }) {
         ease: 'circ.in',
         transformOrigin: '50% 50% -50',
       });
+      return () => {
+        if (split.revert) {
+          split.revert();
+        }
+
+        ScrollTrigger.getAll().forEach((st) => st.kill());
+
+        tl.kill();
+        scrollTl.kill();
+      };
     },
 
     { scope: containerRef }

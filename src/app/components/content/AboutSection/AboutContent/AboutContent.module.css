@@ -1,10 +1,10 @@
 .Content {
+    position: absolute;
+    top: 0;
     padding: 2rem;
     width: 100%;
     height: fit-content;
     min-height: 100vh;
-    background: transparent;
-    backdrop-filter: blur(10px);
     overflow: hidden;
     z-index: 1;
 }

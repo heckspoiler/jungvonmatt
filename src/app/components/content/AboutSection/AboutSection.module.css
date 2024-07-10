@@ -1,8 +1,10 @@
 .Main {
-    margin-top: 50vh;
+    transform: translateY(50vh);
     min-height: 200vh;
     position: relative;
+    border: 1px solid black;
 }
+
 
 
 .Main h1 {

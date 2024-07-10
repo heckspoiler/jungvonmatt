@@ -44,7 +44,7 @@ export default function RightTitleSection({ styles, containerRef }) {
 
       ScrollTrigger.create({
         trigger: boxRef.current,
-        start: 'top 35.3%',
+        start: 'top 30%',
         end: 'bottom top',
         scrub: 0.3,
         // markers: true,
