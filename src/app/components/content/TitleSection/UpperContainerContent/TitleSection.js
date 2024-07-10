@@ -20,11 +20,10 @@ export default function TitleSection({ styles, containerRef, isMobile }) {
 
   useGSAP(
     () => {
-      const split = new SplitText(textRef.current, { type: 'chars' });
-      const tl = gsap.timeline();
-
       if (!textRef.current || !arrowRef.current || !containerRef.current)
         return;
+      const split = new SplitText(textRef.current, { type: 'chars' });
+      const tl = gsap.timeline();
 
       tl.from(split.chars, {
         y: 150,

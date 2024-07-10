@@ -12,7 +12,7 @@ export default function SquareSvg() {
   const svgRef = useRef();
 
   useGSAP(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !svgRef.current) return;
 
     const tl = gsap.timeline({
       scrollTrigger: {
