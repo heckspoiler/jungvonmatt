@@ -1,14 +1,21 @@
-.Main {
-    margin-top: 50vh;
-    min-height: 200vh;
-    position: relative;
+.Content {
+    padding: 2rem;
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    z-index: 1;
 }
 
-
-.Main h1 {
+.Content h1 {
     color: var(--black-new)
 }
 
+.FirstContent {
+    padding: 4rem;
+}
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {}
