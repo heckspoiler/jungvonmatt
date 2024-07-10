@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
-export default function ({ styles, isMobile, containerRef }) {
+export default function Arrow({ styles, isMobile, containerRef }) {
   const arrowRef = useRef();
 
   useGSAP(
