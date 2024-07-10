@@ -29,7 +29,7 @@
 
 .BlackBGContainer {
     background-color: var(--black-new);
-
+    overflow: hidden;
 }
 
 .BlackBG {
@@ -38,6 +38,9 @@
     padding: 0em 0.2em;
 }
 
+.ArrowContainer {
+    display: flex;
+}
 
 .Content:nth-of-type(2) {
     display: flex;
