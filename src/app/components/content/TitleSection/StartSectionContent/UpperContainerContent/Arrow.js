@@ -35,7 +35,7 @@ export default function Arrow({ styles, isMobile, containerRef }) {
         start: 'top 5.3%',
         end: 'bottom top',
         scrub: 0.3,
-        markers: true,
+        // markers: true,
         animation: gsap.fromTo(
           arrowRef.current,
           { y: 0, rotation: 40 },
