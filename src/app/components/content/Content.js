@@ -31,6 +31,18 @@ export default function Content() {
   const secondContainer = useRef();
 
   useEffect(() => {
+    const handleLoad = () => {
+      console.log('utzjgkzgjkzjggjkh');
+    };
+
+    window.addEventListener('load', handleLoad);
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
+
+  useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };

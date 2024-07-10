@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import UpperContainer from './UpperContainer';
 import LowerContainer from './LowerContainer';
 import SquareSvg from './svgContents/SquareSvg';
@@ -10,6 +10,9 @@ export default function StartSection({
   isMobile,
   secondContainer,
 }) {
+  useEffect(() => {
+    console.log(containerRef.current, 'From startseröjlkasfd');
+  }, [onload]);
   return (
     <>
       <div className={styles.TitleContainer} ref={containerRef}>

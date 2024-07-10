@@ -1,8 +1,6 @@
-import { Space_Grotesk } from 'next/font/google';
+import React from 'react';
 import './globals.css';
 import Navbar from './components/Header/Navbar';
-
-// const inter = Space_Grotesk({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Hello JVM!',

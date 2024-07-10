@@ -14,6 +14,10 @@ export default function TitleSection({ styles, containerRef, isMobile }) {
   const arrowRef = useRef();
   const boxRef = useRef();
 
+  useEffect(() => {
+    console.log(containerRef.current);
+  }, [onload]);
+
   useGSAP(
     () => {
       if (
