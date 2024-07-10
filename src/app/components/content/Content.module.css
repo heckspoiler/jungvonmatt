@@ -25,6 +25,10 @@
     overflow: hidden;
 }
 
+.Content:nth-of-type(3) {
+    background-color: red;
+}
+
 .TitleContainer h1 {
     font-size: 4em;
     pointer-events: all;

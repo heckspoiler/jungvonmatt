@@ -9,13 +9,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(useGSAP, SplitText, DrawSVGPlugin, ScrollTrigger);
 
-export default function RightTitleSection({ styles, containerRef }) {
+export default function RightTitleSection({ styles }) {
   const textRef = useRef();
   const boxRef = useRef();
+  const containerRef = useRef();
 
   useGSAP(
     () => {
-      if (!textRef.current || !boxRef.current || !containerRef.current) {
+      if (!textRef.current || !boxRef.current || !containerRef) {
         console.log('Refs not ready');
         return;
       }
@@ -65,12 +66,14 @@ export default function RightTitleSection({ styles, containerRef }) {
   );
 
   return (
-    <div className={styles.Content}>
-      <div className={styles.BlackBGContainer} ref={boxRef}>
-        <h1 className={styles.BlackBG} ref={textRef}>
-          New Opportunity
-        </h1>
+    <section ref={containerRef}>
+      <div className={styles.Content}>
+        <div className={styles.BlackBGContainer} ref={boxRef}>
+          <h1 className={styles.BlackBG} ref={textRef}>
+            New Opportunity
+          </h1>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
