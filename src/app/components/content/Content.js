@@ -39,7 +39,7 @@ export default function Content() {
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [isMobile]);
+  }, [isMobile, setIsMobile]);
 
   return (
     <section className={styles.Main}>
