@@ -14,34 +14,6 @@
 }
 
 
-
-
-.LowerContainer {
-    padding: 4rem 3rem 3rem 3rem;
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40vh;
-    overflow: hidden;
-}
-
-.LowerContent {
-    max-width: 80rem;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-
-}
-
-.LowerContent h1 {
-    font-size: 6rem;
-    text-transform: uppercase;
-}
-
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {}
 

@@ -3,10 +3,11 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import styles from './LowerContainer.module.css';
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
-export default function LowerContainer({ styles, secondContainer }) {
+export default function LowerContainer({ secondContainer }) {
   const textRef = useRef();
 
   useGSAP(() => {
@@ -28,8 +29,8 @@ export default function LowerContainer({ styles, secondContainer }) {
 
     tl.fromTo(
       split.chars,
-      { y: 500, opacity: 1 },
-      { y: 0, opacity: 1, duration: 0.6, ease: 'circ.out', stagger: 0.02 }
+      { y: -500, opacity: 1 },
+      { y: 0, opacity: 1, duration: 0.6, ease: 'circ.out', stagger: -0.02 }
     ).to(
       split.chars,
       {
@@ -38,19 +39,21 @@ export default function LowerContainer({ styles, secondContainer }) {
         duration: 0.8,
         stagger: 0.02,
       },
-      '+=0.5' // Delay before starting the exit animation
+      '+=0.5'
     );
 
     return () => {
-      split.revert(); // Clean up the SplitText instance
-      tl.kill(); // Kill the timeline
+      split.revert();
+      tl.kill();
     };
-  }, []); // Empty dependency array ensures this runs once on mount
+  }, []);
 
   return (
     <div className={styles.LowerContainer}>
       <div className={styles.LowerContent} ref={secondContainer}>
-        <h1 ref={textRef}>I would like to work for you</h1>
+        <h1 ref={textRef}>
+          I would like to <br /> work for you ㋡
+        </h1>
       </div>
     </div>
   );
