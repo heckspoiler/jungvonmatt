@@ -1,19 +1,31 @@
 .CardContainer {
-    background-color: var(--white-new);
-    height: 30rem;
+    height: fit-content;
     width: 50rem;
     text-transform: uppercase;
+    overflow: hidden;
 }
 
 .Card {
-    padding: 1rem;
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: var(--white-new);
+}
+
+
+.OverflowContainer {
+    overflow: hidden;
 }
 
 .TitleContainer {
     /* background-color: var(--accent-green); */
-    padding: 0 1rem 1rem 1rem;
-    border-bottom: 1px solid var(--black-new)
+    padding: 1rem 1rem 1rem 1rem;
+    border-bottom: 1px solid var(--black-new);
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background-color: var(--accent-green);
 }
+
+.Arrow {}
 
 .InfoContainer {
     display: flex;
@@ -24,7 +36,7 @@
 .InfoLine {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--black-new);
     width: 100%;
     justify-content: space-around;
     padding: 1rem 0;
@@ -51,6 +63,20 @@
 .InfoCell:nth-child(odd) {
     border-right: 1px solid black;
 }
+
+
+.InfoLine:nth-of-type(3) {
+    border: 1px solid transparent;
+
+}
+
+.InfoLine:nth-of-type(3) .InfoCell {
+    border: 1px solid transparent;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+
 
 
 /* Enable hover only on non-touch devices */
