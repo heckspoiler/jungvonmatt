@@ -69,7 +69,7 @@
   --black-new: #1C1C1C;
   --white-new: rgb(238, 238, 238);
   --accent-orange: #EE642A;
-  --accent-green: #D1FA4A;
+  --accent-green: #a5fa4a;
 }
 
 p {
@@ -99,7 +99,7 @@ body {
 body {
   min-height: 100vh;
   margin: 0;
-  background-color: white;
+  background-color: var(--black-new);
   overflow: hidden;
   position: relative;
 }
@@ -113,8 +113,8 @@ body::before {
   bottom: 0;
   z-index: -100;
   background-image:
-    linear-gradient(to right, #4ab8ff 1px, transparent 1px),
-    linear-gradient(to bottom, #4ab8ff 1px, transparent 1px);
+    linear-gradient(to right, var(--white-new) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--white-new) 1px, transparent 1px);
   background-size: 50px 50px;
   /* Size of each square */
   opacity: 0.3;

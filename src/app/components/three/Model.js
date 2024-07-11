@@ -62,9 +62,9 @@ export default function Model() {
           envMapIntensity={0.1}
           clearcoat={1}
           clearcoatRoughness={0.9}
-          color={new THREE.Color('blue')}
-          transparent={false} // Ensure it's not transparent
-          opacity={1} // Full opacity
+          color={new THREE.Color('darkblue')}
+          transparent={false}
+          opacity={1}
         />
       </mesh>
 

@@ -1,6 +1,5 @@
 .CardContainer {
-    background-color: rgba(216, 216, 216, 0.6);
-    backdrop-filter: blur(10px);
+    background-color: var(--white-new);
     height: 30rem;
     width: 50rem;
     text-transform: uppercase;
@@ -10,10 +9,47 @@
     padding: 1rem;
 }
 
+.TitleContainer {
+    /* background-color: var(--accent-green); */
+    padding: 0 1rem 1rem 1rem;
+    border-bottom: 1px solid var(--black-new)
+}
+
 .InfoContainer {
     display: flex;
     align-items: center;
-    gap: 1em;
+    flex-direction: column;
+}
+
+.InfoLine {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    width: 100%;
+    justify-content: space-around;
+    padding: 1rem 0;
+}
+
+.InfoLine h2 {
+    font-variation-settings: "wght" 600;
+}
+
+.InfoLine h2,
+.InfoLine p {
+
+    overflow: hidden;
+}
+
+.InfoCell {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 4rem;
+}
+
+.InfoCell:nth-child(odd) {
+    border-right: 1px solid black;
 }
 
 

@@ -27,12 +27,12 @@
     transition: color 0.4s cubic-bezier(0.23, 1, 0.320, 1)
 }
 
-.Header li:hover {
+/* .Header li:hover {
     color: var(--white-new)
-}
+} */
 
 .Header li::before {
-    background-color: var(--black-new);
+    background-color: var(--accent-green);
     height: 100%;
     position: absolute;
     width: 100%;
