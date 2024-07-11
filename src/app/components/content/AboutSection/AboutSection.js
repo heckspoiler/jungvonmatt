@@ -10,7 +10,7 @@ import styles from './AboutSection.module.css';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-export default function AboutSection() {
+export default function AboutSection({ isMobile }) {
   const containerRef = useRef(null);
 
   useGSAP(
@@ -53,7 +53,7 @@ export default function AboutSection() {
 
   return (
     <section className={styles.Main} ref={containerRef}>
-      <AboutContent containerRef={containerRef} />
+      <AboutContent containerRef={containerRef} isMobile={isMobile} />
     </section>
   );
 }
