@@ -29,7 +29,7 @@ export default function Card({ continueScrolling }) {
         !textRef.current ||
         !firstBox.current ||
         !secondBox.current ||
-        !thirdBox.current ||
+        !thirdBox.current
       ) {
         return;
       }
