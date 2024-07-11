@@ -1,16 +1,7 @@
 .Main {
-    transform: translateY(50vh);
-    height: fit-content;
-    position: relative;
-    min-height: 200vh;
-    border: 1px solid lightblue;
-    /* border: 1px solid black; */
-}
-
-
-
-.Main h1 {
-    color: var(--black-new)
+    min-height: 100vh;
+    background-color: red;
+    width: 100%;
 }
 
 

@@ -6,6 +6,7 @@ import styles from './Content.module.css';
 // section imports
 import AboutSection from './AboutSection/AboutSection';
 import StartSection from './TitleSection/StartSection';
+import WorkSection from './WorkSection/WorkSection';
 
 //gsap imports
 import { gsap } from 'gsap';
@@ -57,6 +58,7 @@ export default function Content() {
         secondContainer={secondContainer}
       />
       <AboutSection isMobile={isMobile} />
+      <WorkSection isMobile={isMobile} />
     </section>
   );
 }

@@ -4,7 +4,6 @@
     padding: 2rem;
     width: 100%;
     height: fit-content;
-    min-height: 400vh;
     overflow: hidden;
     z-index: 1;
 
@@ -29,7 +28,6 @@
 }
 
 .ScrollTrigger {
-    background-color: blue;
     margin-top: 6rem;
     height: 10em;
     width: 10em;
