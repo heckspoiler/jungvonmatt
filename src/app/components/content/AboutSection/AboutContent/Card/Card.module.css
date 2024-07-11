@@ -6,23 +6,30 @@
 }
 
 .Card {
-    padding: 1rem 1rem 1rem 1rem;
-    background-color: var(--white-new);
+    padding: 1rem 1rem 0rem 1rem;
+    background-color: rgba(165, 165, 165, 0.3);
+    backdrop-filter: blur(10px);
+    color: var(--white-new);
 }
 
 
 .OverflowContainer {
     overflow: hidden;
+    display: flex;
+    width: 100%;
+    align-items: center;
+
 }
 
 .TitleContainer {
-    /* background-color: var(--accent-green); */
+    background-color: var(--accent-green);
     padding: 1rem 1rem 1rem 1rem;
-    border-bottom: 1px solid var(--black-new);
     display: flex;
     align-items: center;
     gap: 3rem;
     background-color: var(--accent-green);
+    overflow: hidden;
+    width: 100%;
 }
 
 .Arrow {}
@@ -36,7 +43,7 @@
 .InfoLine {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--black-new);
+    border-bottom: 1px solid var(--white-new);
     width: 100%;
     justify-content: space-around;
     padding: 1rem 0;
@@ -61,16 +68,15 @@
 }
 
 .InfoCell:nth-child(odd) {
-    border-right: 1px solid black;
+    border-right: 1px solid var(--white-new);
 }
 
 
-.InfoLine:nth-of-type(3) {
+.OverflowContainer:nth-of-type(3) .InfoLine {
     border: 1px solid transparent;
-
 }
 
-.InfoLine:nth-of-type(3) .InfoCell {
+.OverflowContainer:nth-of-type(3) .InfoCell {
     border: 1px solid transparent;
     font-size: 0.8rem;
     text-align: center;
