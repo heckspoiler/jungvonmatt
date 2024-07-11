@@ -15,11 +15,7 @@ export default function MeImage({ continueScrolling }) {
 
   useGSAP(
     () => {
-      if (
-        !containerRef.current ||
-        !imageRef.current ||
-        !continueScrolling.current
-      ) {
+      if (!containerRef.current || !imageRef.current || !continueScrolling) {
         return;
       }
 
@@ -37,7 +33,7 @@ export default function MeImage({ continueScrolling }) {
         }),
       });
       ScrollTrigger.create({
-        trigger: continueScrolling.current,
+        trigger: continueScrolling,
         markers: true,
         start: 'top 20%',
         end: 'bottom top',

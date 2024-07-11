@@ -20,7 +20,7 @@ export default function Card({ continueScrolling }) {
   const cardWrapperRef = useRef();
 
   useEffect(() => {
-    console.log(continueScrolling.current);
+    console.log(continueScrolling);
   });
 
   useGSAP(
@@ -34,7 +34,7 @@ export default function Card({ continueScrolling }) {
         !firstBox.current ||
         !secondBox.current ||
         !thirdBox.current ||
-        !continueScrolling.current
+        !continueScrolling
       ) {
         return;
       }
@@ -86,7 +86,7 @@ export default function Card({ continueScrolling }) {
           ),
       });
       ScrollTrigger.create({
-        trigger: continueScrolling.current,
+        trigger: continueScrolling,
         markers: true,
         start: 'top 20%',
         end: 'bottom top',
