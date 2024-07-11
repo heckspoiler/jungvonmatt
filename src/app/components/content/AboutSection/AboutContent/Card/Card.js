@@ -19,6 +19,10 @@ export default function Card({ continueScrolling }) {
   const thirdBox = useRef();
   const cardWrapperRef = useRef();
 
+  useEffect(() => {
+    console.log(continueScrolling.current);
+  });
+
   useGSAP(
     () => {
       if (
@@ -29,7 +33,8 @@ export default function Card({ continueScrolling }) {
         !textRef.current ||
         !firstBox.current ||
         !secondBox.current ||
-        !thirdBox.current
+        !thirdBox.current ||
+        !continueScrolling.current
       ) {
         return;
       }
