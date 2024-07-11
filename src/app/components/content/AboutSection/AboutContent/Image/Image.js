@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './Image.module.css';
 import Image from 'next/image';
 
-const MeImage = forwardRef(({ isMobile }, ref) => {
+export const MeImage = forwardRef(({ isMobile }, ref) => {
   const containerRef = useRef();
   const imageRef = useRef();
 
@@ -65,5 +65,3 @@ const MeImage = forwardRef(({ isMobile }, ref) => {
     </div>
   );
 });
-
-export default MeImage;
