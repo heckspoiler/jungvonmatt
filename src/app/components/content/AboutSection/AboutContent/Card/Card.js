@@ -19,10 +19,6 @@ export default function Card({ continueScrolling }) {
   const thirdBox = useRef();
   const cardWrapperRef = useRef();
 
-  useEffect(() => {
-    console.log(continueScrolling);
-  });
-
   useGSAP(
     () => {
       if (
@@ -33,8 +29,7 @@ export default function Card({ continueScrolling }) {
         !textRef.current ||
         !firstBox.current ||
         !secondBox.current ||
-        !thirdBox.current ||
-        !continueScrolling
+        !thirdBox.current
       ) {
         return;
       }
@@ -85,22 +80,22 @@ export default function Card({ continueScrolling }) {
             '-=0.4'
           ),
       });
-      ScrollTrigger.create({
-        trigger: continueScrolling,
-        markers: true,
-        start: 'top 20%',
-        end: 'bottom top',
-        toggleActions: 'play none none reverse',
+      // ScrollTrigger.create({
+      //   trigger: continueScrolling.current,
+      //   markers: true,
+      //   start: 'top 20%',
+      //   end: 'bottom top',
+      //   toggleActions: 'play none none reverse',
 
-        onEnter: () => {
-          console.log('entered');
-        },
-        animation: gsap.timeline().to(containerRef.current, {
-          y: -600,
-          duration: 0.8,
-          ease: 'power2.out',
-        }),
-      });
+      //   onEnter: () => {
+      //     console.log('entered');
+      //   },
+      //   animation: gsap.timeline().to(containerRef.current, {
+      //     y: -600,
+      //     duration: 0.8,
+      //     ease: 'power2.out',
+      //   }),
+      // });
     },
     { scope: containerRef }
   );

@@ -12,11 +12,11 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 export default function MeImage({ continueScrolling }) {
   const containerRef = useRef();
   const imageRef = useRef();
+  const [scrollHeight, setScrollHeight] = useState(0);
 
   useGSAP(
     () => {
-      if (!containerRef.current || !imageRef.current || !continueScrolling) {
-        console.log(continueScrolling, 'is it available?');
+      if (!containerRef.current || !imageRef.current) {
         return;
       }
 
@@ -31,23 +31,6 @@ export default function MeImage({ continueScrolling }) {
           delay: 2.5,
           duration: 2,
           ease: 'elastic.out',
-        }),
-      });
-      ScrollTrigger.create({
-        trigger: continueScrolling,
-        markers: true,
-        start: 'top 20%',
-        end: 'bottom top',
-        toggleActions: 'play none none reverse',
-
-        onEnter: () => {
-          console.log('entered');
-        },
-        animation: gsap.timeline().to(containerRef.current, {
-          y: -600,
-          duration: 0.8,
-          delay: 0,
-          ease: 'power2.out',
         }),
       });
     },

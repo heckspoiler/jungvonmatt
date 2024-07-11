@@ -53,7 +53,7 @@ export default function AboutSection({ isMobile }) {
 
   return (
     <section className={styles.Main} ref={containerRef}>
-      <AboutContent containerRef={containerRef} isMobile={isMobile} />
+      <AboutContent isMobile={isMobile} />
     </section>
   );
 }

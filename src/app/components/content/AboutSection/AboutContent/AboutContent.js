@@ -9,11 +9,8 @@ export default function AboutContent({ containerRef, isMobile }) {
     <section className={styles.Content}>
       <div className={styles.FirstContentContainer}>
         <div className={styles.FirstContent}>
-          <Card continueScrolling={continueScrolling.current} />
-          <MeImage
-            continueScrolling={continueScrolling.current}
-            isMobile={isMobile}
-          />
+          <Card continueScrolling={continueScrolling} />
+          <MeImage continueScrolling={continueScrolling} isMobile={isMobile} />
         </div>
         <div ref={continueScrolling} className={styles.ScrollTrigger}></div>
       </div>
