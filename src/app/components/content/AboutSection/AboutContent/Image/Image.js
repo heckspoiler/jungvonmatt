@@ -16,6 +16,7 @@ export default function MeImage({ continueScrolling }) {
   useGSAP(
     () => {
       if (!containerRef.current || !imageRef.current || !continueScrolling) {
+        console.log(continueScrolling, 'is it available?');
         return;
       }
 
