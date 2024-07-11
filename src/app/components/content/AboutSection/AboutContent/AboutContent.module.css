@@ -4,17 +4,35 @@
     padding: 2rem;
     width: 100%;
     height: fit-content;
-    min-height: 100vh;
+    min-height: 400vh;
     overflow: hidden;
     z-index: 1;
+
 }
 
 .Content h1 {
     color: var(--black-new)
 }
 
-.FirstContent {
+.FirstContentContainer {
     padding: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.FirstContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ScrollTrigger {
+    background-color: blue;
+    margin-top: 6rem;
+    height: 10em;
+    width: 10em;
 }
 
 /* Enable hover only on non-touch devices */

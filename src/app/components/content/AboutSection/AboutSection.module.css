@@ -1,6 +1,6 @@
 .Main {
     transform: translateY(50vh);
-    min-height: 200vh;
+    min-height: 300vh;
     position: relative;
     /* border: 1px solid black; */
 }

@@ -1,0 +1,16 @@
+.Container {
+    scale: 0.8;
+    pointer-events: all;
+}
+
+.ImageContainer {
+    position: relative;
+    height: 32rem;
+    width: 32rem;
+}
+
+.ImageContainer img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

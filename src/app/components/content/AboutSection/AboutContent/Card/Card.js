@@ -9,7 +9,7 @@ import styles from './Card.module.css';
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
-export default function Card() {
+export default function Card({ continueScrolling }) {
   const containerRef = useRef();
   const cardRef = useRef();
   const firstTitleRef = useRef();
@@ -17,17 +17,20 @@ export default function Card() {
   const firstBox = useRef();
   const secondBox = useRef();
   const thirdBox = useRef();
+  const cardWrapperRef = useRef();
 
   useGSAP(
     () => {
       if (
         !containerRef.current ||
         !cardRef.current ||
+        !cardWrapperRef ||
         !firstTitleRef.current ||
         !textRef.current ||
         !firstBox.current ||
         !secondBox.current ||
-        !thirdBox.current
+        !thirdBox.current ||
+        !continueScrolling.current
       ) {
         return;
       }
@@ -39,7 +42,7 @@ export default function Card() {
         trigger: containerRef.current,
         start: 'top 70%',
         end: 'bottom top',
-        markers: true,
+        // markers: true,
         toggleActions: 'play none none reverse',
         animation: gsap
           .timeline()
@@ -78,6 +81,22 @@ export default function Card() {
             '-=0.4'
           ),
       });
+      ScrollTrigger.create({
+        trigger: continueScrolling.current,
+        markers: true,
+        start: 'top 20%',
+        end: 'bottom top',
+        toggleActions: 'play none none reverse',
+
+        onEnter: () => {
+          console.log('entered');
+        },
+        animation: gsap.timeline().to(containerRef.current, {
+          y: -600,
+          duration: 0.8,
+          ease: 'power2.out',
+        }),
+      });
     },
     { scope: containerRef }
   );
@@ -87,7 +106,9 @@ export default function Card() {
       <div className={styles.Card} ref={cardRef}>
         <div className={styles.OverflowContainer}>
           <div className={styles.TitleContainer} ref={firstTitleRef}>
-            <h1 ref={textRef}>Who am i? →</h1>
+            <h1 ref={textRef}>
+              Who am i? <span>→</span>
+            </h1>
           </div>
         </div>
         <div className={styles.InfoContainer}>

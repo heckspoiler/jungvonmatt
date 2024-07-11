@@ -18,7 +18,6 @@
     display: flex;
     width: 100%;
     align-items: center;
-
 }
 
 .TitleContainer {
@@ -30,6 +29,12 @@
     background-color: var(--accent-green);
     overflow: hidden;
     width: 100%;
+}
+
+
+
+.TitleContainer h1 span {
+    padding-left: 15rem;
 }
 
 .Arrow {}
@@ -45,7 +50,6 @@
     align-items: center;
     border-bottom: 1px solid var(--white-new);
     width: 100%;
-    justify-content: space-around;
     padding: 1rem 0;
 }
 
@@ -62,9 +66,10 @@
 .InfoCell {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    gap: 1rem;
     width: 100%;
     height: 4rem;
+    padding: 1rem;
 }
 
 .InfoCell:nth-child(odd) {
@@ -80,6 +85,12 @@
     border: 1px solid transparent;
     font-size: 0.8rem;
     text-align: center;
+}
+
+.Fucker {
+    background-color: red;
+    height: 100vh;
+    width: 100vw;
 }
 
 
