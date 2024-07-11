@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styles from './AboutContent.module.css';
 import Card from './Card/Card';
-import { MeImage } from './Image/Image';
+import MeImage from './Image/Image';
 
 export default function AboutContent({ containerRef, isMobile }) {
   const continueScrolling = useRef();
