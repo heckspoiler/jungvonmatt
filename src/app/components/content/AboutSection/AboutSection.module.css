@@ -2,8 +2,7 @@
     transform: translateY(50vh);
     height: fit-content;
     position: relative;
-    min-height: 200vh;
-    border: 1px solid lightblue;
+    min-height: 150vh;
     /* border: 1px solid black; */
 }
 
