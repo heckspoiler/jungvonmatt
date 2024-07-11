@@ -15,11 +15,7 @@ export default function MeImage({ continueScrolling }) {
 
   useGSAP(
     () => {
-      if (
-        !containerRef.current ||
-        !imageRef.current ||
-        !continueScrolling.current
-      ) {
+      if (!containerRef.current || !imageRef.current) {
         return;
       }
 

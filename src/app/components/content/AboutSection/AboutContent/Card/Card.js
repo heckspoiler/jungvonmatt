@@ -30,7 +30,6 @@ export default function Card({ continueScrolling }) {
         !firstBox.current ||
         !secondBox.current ||
         !thirdBox.current ||
-        !continueScrolling.current
       ) {
         return;
       }
