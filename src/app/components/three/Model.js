@@ -1,7 +1,5 @@
 'use client';
-import React, { useRef, useEffect } from 'react';
-
-/* THREE */
+import React, { useRef, useEffect, useState } from 'react';
 import { useThree, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import {
@@ -10,20 +8,31 @@ import {
   Environment,
   MeshDistortMaterial,
 } from '@react-three/drei';
-
-/* gsap */
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Model() {
-  const { viewport, camera, scene } = useThree();
   const meshRef = useRef();
   const { nodes } = useGLTF('/assets/neuuu.glb');
   const timeRef = useRef(0);
   const scrollProgressRef = useRef(0);
+  const [scrollDistortion, setScrollDistortion] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const calcDelta = () => {
+    const position = window.scrollY;
+    setTimeout(() => {
+      console.log('huresondjfdsjölkafsdjkl');
+      setScrollPosition(0);
+    }, 100);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', calcDelta);
+  }, [scrollPosition]);
 
   useGSAP(() => {
     ScrollTrigger.create({
@@ -31,9 +40,10 @@ export default function Model() {
       end: 'max',
       onUpdate: (self) => {
         scrollProgressRef.current = self.progress;
+        setScrollDistortion(self.progress * 0.4);
       },
     });
-  });
+  }, []);
 
   useEffect(() => {
     if (meshRef.current) {
@@ -42,7 +52,7 @@ export default function Model() {
       meshRef.current.rotation.y = 0;
       meshRef.current.rotation.z = 0;
     }
-  }, [scene]);
+  }, []);
 
   useFrame((_, delta) => {
     if (meshRef.current) {
@@ -56,21 +66,10 @@ export default function Model() {
   return (
     <group>
       <mesh ref={meshRef} geometry={nodes.Curve002.geometry} scale={1.13}>
-        {/* <meshPhysicalMaterial
-          metalness={1}
-          roughness={0.8}
-          envMapIntensity={0.1}
-          clearcoat={1}
-          clearcoatRoughness={0.9}
-          color={new THREE.Color('darkblue')}
-          transparent={false}
-          opacity={1}
-        /> */}
-
         <MeshDistortMaterial
-          distort={0.3}
-          speed={2}
-          color={new THREE.Color('darkblue')}
+          distort={scrollDistortion}
+          speed={1.5}
+          color={new THREE.Color('white')}
         />
       </mesh>
 
