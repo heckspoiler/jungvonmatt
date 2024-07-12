@@ -11,17 +11,16 @@ import WorkSection from './WorkSection/WorkSection';
 //gsap imports
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { SplitText } from 'gsap/SplitText';
-import { DrawSVGPlugin } from 'gsap/all';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollSmoother from 'gsap/ScrollSmoother';
 
 // varia imports
 import { isMobileStore } from '../../../../stores/isMobileStore';
 import SquareSvg from './TitleSection/svgContents/SquareSvg';
 import AnotherSquareSvg from './TitleSection/svgContents/AnotherSquareSvg';
 import CubeSvg from './TitleSection/svgContents/CubeSvg';
+import { ReactLenis, useLenis } from '@studio-freight/react-lenis';
 
-gsap.registerPlugin(useGSAP, SplitText, DrawSVGPlugin, ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollSmoother);
 
 export default function Content() {
   //stores
@@ -30,6 +29,7 @@ export default function Content() {
 
   // refs
   const secondContainer = useRef();
+  const containerRef = useRef();
 
   useEffect(() => {
     const handleResize = () => {
@@ -47,8 +47,10 @@ export default function Content() {
     gsap.to(window, { duration: 0, scrollTo: 0 });
   });
 
+  const lenis = useLenis(({ scroll }) => {});
+
   return (
-    <section className={styles.Main}>
+    <ReactLenis className={styles.Main} ref={containerRef}>
       <AnotherSquareSvg />
       <SquareSvg />
       <CubeSvg />
@@ -59,6 +61,6 @@ export default function Content() {
       />
       <AboutSection isMobile={isMobile} />
       <WorkSection isMobile={isMobile} />
-    </section>
+    </ReactLenis>
   );
 }

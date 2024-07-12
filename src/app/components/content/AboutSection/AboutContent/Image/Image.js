@@ -28,9 +28,9 @@ export default function MeImage({ continueScrolling }) {
         toggleActions: 'play none none reverse',
         animation: gsap.timeline().from(imageRef.current, {
           scale: 0,
-          delay: 2.5,
-          duration: 2,
-          ease: 'elastic.out',
+          delay: 2,
+          duration: 0.8,
+          ease: 'back.out',
         }),
       });
     },

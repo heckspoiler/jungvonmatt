@@ -8,7 +8,7 @@ import {
   useGLTF,
   OrbitControls,
   Environment,
-  useEnvironment,
+  MeshDistortMaterial,
 } from '@react-three/drei';
 
 /* gsap */
@@ -56,7 +56,7 @@ export default function Model() {
   return (
     <group>
       <mesh ref={meshRef} geometry={nodes.Curve002.geometry} scale={1.13}>
-        <meshPhysicalMaterial
+        {/* <meshPhysicalMaterial
           metalness={1}
           roughness={0.8}
           envMapIntensity={0.1}
@@ -65,6 +65,12 @@ export default function Model() {
           color={new THREE.Color('darkblue')}
           transparent={false}
           opacity={1}
+        /> */}
+
+        <MeshDistortMaterial
+          distort={0.3}
+          speed={2}
+          color={new THREE.Color('darkblue')}
         />
       </mesh>
 
