@@ -17,6 +17,10 @@ export default function WorkSection({ isMobile }) {
   const b = useRef();
   const c = useRef();
   const d = useRef();
+  const e = useRef();
+  const f = useRef();
+  const g = useRef();
+  const h = useRef();
 
   useGSAP(
     () => {
@@ -25,12 +29,25 @@ export default function WorkSection({ isMobile }) {
         !a.current ||
         !b.current ||
         !c.current ||
-        !d.current
+        !d.current ||
+        !e.current ||
+        !f.current ||
+        !g.current ||
+        !h.current
       ) {
         return;
       }
 
-      const elements = [a.current, b.current, c.current, d.current];
+      const elements = [
+        a.current,
+        b.current,
+        c.current,
+        d.current,
+        e.current,
+        f.current,
+        g.current,
+        h.current,
+      ];
 
       elements.forEach((element) => {
         Draggable.create(element, {
@@ -44,6 +61,8 @@ export default function WorkSection({ isMobile }) {
       gsap.set(elements, {
         visibility: 'hidden',
         y: '-100',
+        x: (index) => `${index} * 100`,
+        opacity: '0',
         rotation: () => gsap.utils.random(-120, 120),
       });
 
@@ -58,6 +77,8 @@ export default function WorkSection({ isMobile }) {
           elements.forEach((el, index) => {
             gsap.to(el, {
               duration: 2,
+              opacity: '1',
+              x: (index) => `${index} * 100`,
               visibility: 'visible',
               y: () => containerRef.current.offsetHeight - el.offsetHeight,
               rotation: 0,
@@ -89,26 +110,29 @@ export default function WorkSection({ isMobile }) {
     <section className={styles.Main}>
       <div className={styles.TestContainer} ref={containerRef}>
         <div className={styles.Test} ref={a}>
-          <Image
-            src="/assets/img/technologies/next_.png"
-            width={250}
-            height={50}
-            layout="intrinsic"
-            alt="Next.js Logo"
-          />
+          <h1>Next.js</h1>
+        </div>
+        <div className={styles.Test} ref={e}>
+          <h1>React</h1>
         </div>
         <div className={styles.Test} ref={b}>
-          <svg
-            width="200px"
-            height="200px"
-            viewBox="0 0 32 32"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z" />
-          </svg>
+          <h1>Tailwind CSS</h1>
         </div>
-        <div className={styles.Test} ref={c}></div>
-        <div className={styles.Test} ref={d}></div>
+        <div className={styles.Test} ref={c}>
+          <h1>GSAP</h1>
+        </div>
+        <div className={styles.Test} ref={d}>
+          <h1>THREE.js / React Three Fiber</h1>
+        </div>
+        <div className={styles.Test} ref={f}>
+          <h1>HTML</h1>
+        </div>
+        <div className={styles.Test} ref={g}>
+          <h1>CSS</h1>
+        </div>
+        <div className={styles.Test} ref={h}>
+          <h1>Javascript</h1>
+        </div>
       </div>
     </section>
   );

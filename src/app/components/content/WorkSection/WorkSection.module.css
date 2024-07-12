@@ -19,12 +19,12 @@
     width: fit-content;
     pointer-events: all;
     position: absolute;
-
-}
-
-.Test img,
-.Test svg {
-    scale: 1;
+    color: var(--white-new);
+    padding: 1rem;
+    border: 1px solid white;
+    background-color: rgba(165, 165, 165, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 5px 5px 1px white;
 }
 
 
