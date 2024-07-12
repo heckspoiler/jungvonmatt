@@ -19,7 +19,7 @@ const technologies = [
   'Javascript',
 ];
 
-export default function SkillSection({ isMobile }) {
+export default function HardSkillSection({ isMobile }) {
   const containerRef = useRef();
   const elementsRef = useRef([]);
   const animationPlayedRef = useRef(false);

@@ -6,8 +6,8 @@ import styles from './Content.module.css';
 // section imports
 import AboutSection from './AboutSection/AboutSection';
 import StartSection from './TitleSection/StartSection';
+import SkillSection from './SkillSection/SkillSection';
 import WorkSection from './WorkSection/WorkSection';
-
 //gsap imports
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -60,6 +60,7 @@ export default function Content() {
         secondContainer={secondContainer}
       />
       <AboutSection isMobile={isMobile} />
+      <SkillSection isMobile={isMobile} />
       <WorkSection isMobile={isMobile} />
     </ReactLenis>
   );

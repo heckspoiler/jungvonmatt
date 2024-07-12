@@ -33,7 +33,7 @@ export default function SoftSkillSection({ isMobile }) {
           trigger: containerRef.current,
           start: 'top 60%',
           end: 'bottom 30%',
-          markers: true,
+          // markers: true,
         },
       });
 
