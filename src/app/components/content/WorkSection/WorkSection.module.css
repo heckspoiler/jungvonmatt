@@ -1,5 +1,12 @@
 .Main {
-    height: 100vh;
-    width: 100%;
-    background-color: red;
+    display: flex;
+    background-color: transparent;
+
+}
+
+.Portal {
+    height: 200vh;
+    width: 100vw;
+    background-color: var(--white-new);
+    align-self: flex-start;
 }
