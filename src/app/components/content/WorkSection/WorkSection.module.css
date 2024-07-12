@@ -7,14 +7,24 @@
 
 .TestContainer {
     display: flex;
+    justify-content: space-around;
     gap: 1rem;
     height: 80vh;
-    border: 1px solid yellow;
+    width: 100%;
+    position: relative;
 }
 
 .Test {
-    height: 10em;
-    width: 10em;
+    height: fit-content;
+    width: fit-content;
+    pointer-events: all;
+    position: absolute;
+
+}
+
+.Test img,
+.Test svg {
+    scale: 1;
 }
 
 

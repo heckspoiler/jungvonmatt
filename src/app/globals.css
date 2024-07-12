@@ -102,6 +102,7 @@ body {
   background-color: var(--black-new);
   overflow: hidden;
   position: relative;
+
 }
 
 body::before {
@@ -115,10 +116,9 @@ body::before {
   background-image:
     linear-gradient(to right, var(--white-new) 1px, transparent 1px),
     linear-gradient(to bottom, var(--white-new) 1px, transparent 1px);
-  background-size: 50px 50px;
-  /* Size of each square */
+  background-size: 7.7vw 7.7vw;
   opacity: 0.3;
-  /* Adjust for desired intensity */
+
 }
 
 h1 {
