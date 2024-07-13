@@ -1,12 +1,48 @@
 .Main {
     display: flex;
-    background-color: transparent;
+    overflow-x: hidden;
+    height: 100vh;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem;
+}
 
+.TitleContainer {
+    overflow: hidden;
+}
+
+.TitleContainer h1 {
+    color: var(--white-new)
 }
 
 .Portal {
-    height: 200vh;
-    width: 100vw;
-    background-color: var(--white-new);
-    align-self: flex-start;
+    height: fit-content;
+    display: flex;
 }
+
+.Container {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    align-items: center;
+    gap: 1rem;
+}
+
+.TestCurb {
+    width: 40rem;
+    height: 40rem;
+    background-color: var(--white-new);
+}
+
+
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 768px) and (max-width: 1120px) {}

@@ -25,7 +25,6 @@ export default function Model() {
   const calcDelta = () => {
     const position = window.scrollY;
     setTimeout(() => {
-      console.log('huresondjfdsjölkafsdjkl');
       setScrollPosition(0);
     }, 100);
   };
