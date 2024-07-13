@@ -4,7 +4,8 @@
     height: 100vh;
     flex-direction: column;
     gap: 2rem;
-    padding: 3rem 3rem 3rem 4rem;
+    padding: 3rem;
+    color: var(--white-new)
 }
 
 .TitleContainer {
@@ -25,29 +26,86 @@
     flex-direction: row;
     height: fit-content;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+
 }
 
 .TestCurb {
-    width: 40rem;
-    height: 40rem;
-    background-color: var(--white-new);
+    width: 32rem;
+    height: 32rem;
+    border: 1px solid white;
+    background-color: rgba(165, 165, 165, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 5px 5px 1px white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
 }
+
+.ProjectTitleContainer {
+    width: fit-content;
+    padding: 0.25em;
+}
+
+.ProjectTitleContainer h2 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    width: fit-content;
+    font-variation-settings: "wght" 600;
+}
+
+.ProjectTitleContainer h3 {
+    font-size: 0.8rem;
+}
+
+.TechnologyContainer {
+    align-items: center;
+    gap: 1em;
+    display: flex;
+}
+
+
+.TechnologyContainer div {
+    height: 0.4em;
+    width: 0.4em;
+    border-radius: 50%;
+    background-color: var(--accent-green);
+    display: flex;
+}
+
+.Technology {
+    display: flex;
+    align-items: center;
+}
+
 
 .TestCurb a {
     pointer-events: all;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    background-color: var(--accent-green);
+    color: var(--black-new);
+    padding: 0.3rem;
+}
+
+.TestCurb:last-of-type {
+    margin-right: 3rem;
+}
+
+.Technologies {
+    display: flex;
+    gap: 1rem;
 }
 
 .ArrowContainer {
     font-size: 0.7rem;
 }
 
-.TestCurb:last-of-type {
-    margin-right: 3rem;
-}
+
 
 
 

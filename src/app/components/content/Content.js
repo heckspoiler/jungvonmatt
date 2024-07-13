@@ -54,12 +54,12 @@ export default function Content() {
       <AnotherSquareSvg />
       <SquareSvg />
       <CubeSvg />
-      {/* <StartSection
+      <StartSection
         styles={styles}
         isMobile={isMobile}
         secondContainer={secondContainer}
       />
-      <AboutSection isMobile={isMobile} /> */}
+      <AboutSection isMobile={isMobile} />
       <SkillSection isMobile={isMobile} />
       <WorkSection isMobile={isMobile} />
       <div className={styles.Test}></div>

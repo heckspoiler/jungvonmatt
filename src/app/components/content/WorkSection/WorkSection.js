@@ -8,6 +8,7 @@ import SplitText from 'gsap/SplitText';
 import { workObject } from './WorkObject/WorkObject';
 import styles from './WorkSection.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP, SplitText);
 
@@ -93,18 +94,31 @@ export default function WorkSection({ isMobile }) {
               className={styles.TestCurb}
               ref={(el) => (testRefs.current[i] = el)}
             >
-              <h2>{element.title}</h2>
-              <Image
-                src={element.imageUrl}
-                height={200}
-                width={400}
-                alt={element.altText}
-              />
-              <p>{element.description}</p>
+              <Link href={element.url} target="_blank">
+                <Image
+                  src={element.imageUrl}
+                  height={220}
+                  width={440}
+                  alt={element.altText}
+                />
+              </Link>
+              <div className={styles.ProjectTitleContainer}>
+                <h2>{element.title}</h2>
+                <h3>{element.description}</h3>
+              </div>
               <div className={styles.Technologies}>
-                {element.technologies.map((el, index) => {
-                  <p className={styles.Technology}>{el[index]}</p>;
-                })}
+                {element.technologies.map((tech, index) => (
+                  <div className={styles.TechnologyContainer}>
+                    <p key={index} className={styles.Technology}>
+                      {tech}
+                    </p>
+                    {index !== element.technologies.length - 1 ? (
+                      <div></div>
+                    ) : (
+                      ''
+                    )}
+                  </div>
+                ))}
               </div>
               <a href={element.url} target="_blank">
                 Link to Project <span className={styles.ArrowContainer}>↗</span>
