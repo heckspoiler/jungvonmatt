@@ -56,7 +56,7 @@ export default function WorkSection({ isMobile }) {
 
     ScrollTrigger.create({
       trigger: containerWrapper.current,
-      markers: true,
+      // markers: true,
       start: 'top 30%',
       end: 'bottom top',
       animation: boxTrigger,
@@ -64,7 +64,7 @@ export default function WorkSection({ isMobile }) {
 
     ScrollTrigger.create({
       trigger: containerWrapper.current,
-      markers: true,
+      // markers: true,
       start: 'top 30%',
       end: 'bottom top',
       animation: titleTrigger,

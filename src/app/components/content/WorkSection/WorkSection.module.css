@@ -10,6 +10,7 @@
 
 .TitleContainer {
     overflow: hidden;
+    align-self: flex-start;
 }
 
 .TitleContainer h1 {
@@ -19,15 +20,14 @@
 .Portal {
     height: fit-content;
     display: flex;
+
 }
 
 .Container {
     display: flex;
     flex-direction: row;
     height: fit-content;
-    align-items: center;
     gap: 2rem;
-
 }
 
 .TestCurb {
@@ -90,6 +90,9 @@
     background-color: var(--accent-green);
     color: var(--black-new);
     padding: 0.3rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-variation-settings: "wght" 500;
 }
 
 .TestCurb:last-of-type {
