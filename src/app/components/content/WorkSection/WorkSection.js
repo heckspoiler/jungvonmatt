@@ -82,7 +82,7 @@ export default function WorkSection({ isMobile }) {
   return (
     <div className={styles.Main} ref={containerWrapper}>
       <div className={styles.TitleContainer}>
-        <h1 ref={titleRef}>Projects</h1>
+        <h1 ref={titleRef}>Selected Projects</h1>
       </div>
       <div className={styles.Portal} ref={containerRef}>
         <div className={styles.Container}>
