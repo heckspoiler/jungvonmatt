@@ -28,6 +28,7 @@
     flex-direction: row;
     height: fit-content;
     gap: 2rem;
+    padding-top: 4rem;
 }
 
 .TestCurb {
