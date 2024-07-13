@@ -90,14 +90,14 @@ export default function WorkSection({ isMobile }) {
         <div className={styles.Container}>
           {workObject.map((element, i) => (
             <div
-              key={i}
+              key={element.key}
               className={styles.TestCurb}
               ref={(el) => (testRefs.current[i] = el)}
             >
               <Image
                 src={element.imageUrl}
-                height={220}
-                width={440}
+                height={240}
+                width={453}
                 alt={element.altText}
               />
               <div className={styles.ProjectTitleContainer}>
@@ -107,7 +107,7 @@ export default function WorkSection({ isMobile }) {
               <div className={styles.Technologies}>
                 {element.technologies.map((tech, index) => (
                   <div className={styles.TechnologyContainer}>
-                    <p key={index} className={styles.Technology}>
+                    <p key={element.key} className={styles.Technology}>
                       {tech}
                     </p>
                     {index !== element.technologies.length - 1 ? (
