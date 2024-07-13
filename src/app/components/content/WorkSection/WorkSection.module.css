@@ -4,7 +4,7 @@
     height: 100vh;
     flex-direction: column;
     gap: 2rem;
-    padding: 3rem;
+    padding: 3rem 3rem 3rem 4rem;
 }
 
 .TitleContainer {
@@ -32,6 +32,21 @@
     width: 40rem;
     height: 40rem;
     background-color: var(--white-new);
+}
+
+.TestCurb a {
+    pointer-events: all;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ArrowContainer {
+    font-size: 0.7rem;
+}
+
+.TestCurb:last-of-type {
+    margin-right: 3rem;
 }
 
 

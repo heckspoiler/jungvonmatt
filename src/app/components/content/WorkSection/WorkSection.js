@@ -5,7 +5,9 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
 import SplitText from 'gsap/SplitText';
+import { workObject } from './WorkObject/WorkObject';
 import styles from './WorkSection.module.css';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP, SplitText);
 
@@ -44,6 +46,21 @@ export default function WorkSection({ isMobile }) {
       ease: 'none',
     });
 
+    const boxTrigger = gsap.from(testRefs.current, {
+      y: 100,
+      opacity: 0,
+      stagger: 0.02,
+      ease: 'power2.out',
+    });
+
+    ScrollTrigger.create({
+      trigger: containerWrapper.current,
+      markers: true,
+      start: 'top 30%',
+      end: 'bottom top',
+      animation: boxTrigger,
+    });
+
     ScrollTrigger.create({
       trigger: containerWrapper.current,
       markers: true,
@@ -70,12 +87,29 @@ export default function WorkSection({ isMobile }) {
       </div>
       <div className={styles.Portal} ref={containerRef}>
         <div className={styles.Container}>
-          {[...Array(5)].map((_, i) => (
+          {workObject.map((element, i) => (
             <div
               key={i}
               className={styles.TestCurb}
               ref={(el) => (testRefs.current[i] = el)}
-            />
+            >
+              <h2>{element.title}</h2>
+              <Image
+                src={element.imageUrl}
+                height={200}
+                width={400}
+                alt={element.altText}
+              />
+              <p>{element.description}</p>
+              <div className={styles.Technologies}>
+                {element.technologies.map((el, index) => {
+                  <p className={styles.Technology}>{el[index]}</p>;
+                })}
+              </div>
+              <a href={element.url} target="_blank">
+                Link to Project <span className={styles.ArrowContainer}>↗</span>
+              </a>
+            </div>
           ))}
         </div>
       </div>
