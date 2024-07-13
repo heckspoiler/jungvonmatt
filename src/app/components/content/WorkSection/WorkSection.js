@@ -8,7 +8,6 @@ import SplitText from 'gsap/SplitText';
 import { workObject } from './WorkObject/WorkObject';
 import styles from './WorkSection.module.css';
 import Image from 'next/image';
-import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP, SplitText);
 
@@ -29,7 +28,6 @@ export default function WorkSection({ isMobile }) {
 
     function amountToScroll() {
       let containerWidth = containerWrapper.current.scrollWidth;
-      console.log(containerWidth);
       return -(containerWidth - window.innerWidth);
     }
 
@@ -90,7 +88,7 @@ export default function WorkSection({ isMobile }) {
         <div className={styles.Container}>
           {workObject.map((element, i) => (
             <div
-              key={element.key}
+              key={element.id}
               className={styles.TestCurb}
               ref={(el) => (testRefs.current[i] = el)}
             >
@@ -106,8 +104,15 @@ export default function WorkSection({ isMobile }) {
               </div>
               <div className={styles.Technologies}>
                 {element.technologies.map((tech, index) => (
-                  <div className={styles.TechnologyContainer}>
-                    <p key={element.key} className={styles.Technology}>
+                  <div
+                    key={`${element.id || index}-tech-${index}`}
+                    className={styles.TechnologyContainer}
+                  >
+                    {' '}
+                    <p
+                      key={element.technologies.index}
+                      className={styles.Technology}
+                    >
                       {tech}
                     </p>
                     {index !== element.technologies.length - 1 ? (

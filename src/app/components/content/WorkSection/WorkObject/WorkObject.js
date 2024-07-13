@@ -48,7 +48,8 @@ export const workObject = [
     imageUrl: '/assets/img/projects/dom.png',
     key: 'f',
   },
-].map((project) => ({
+].map((project, index) => ({
   ...project,
   altText: `Image of Project ${project.title}`,
+  id: index,
 }));
