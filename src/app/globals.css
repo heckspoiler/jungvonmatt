@@ -99,7 +99,8 @@ body {
 body {
   min-height: 100vh;
   margin: 0;
-  background-color: var(--black-new);
+  /* background-color: var(--white-new); */
+  background-color: white;
   overflow: hidden;
   position: relative;
 
@@ -114,10 +115,10 @@ body::before {
   bottom: 0;
   z-index: -100;
   background-image:
-    linear-gradient(to right, var(--white-new) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--white-new) 1px, transparent 1px);
-  background-size: 7.7vw 7.7vw;
-  opacity: 0.3;
+    linear-gradient(to right, var(--black-new) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--black-new) 1px, transparent 1px);
+  background-size: 10vw 10vw;
+  opacity: 0.1;
 
 }
 

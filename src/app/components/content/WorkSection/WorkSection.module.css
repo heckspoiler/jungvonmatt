@@ -5,7 +5,7 @@
     flex-direction: column;
     gap: 2rem;
     padding: 3rem;
-    color: var(--white-new)
+    color: var(--black-new)
 }
 
 .TitleContainer {
@@ -14,7 +14,7 @@
 }
 
 .TitleContainer h1 {
-    color: var(--white-new)
+    color: var(--black-new)
 }
 
 .Portal {
@@ -34,10 +34,9 @@
 .TestCurb {
     width: 32rem;
     height: 32rem;
-    border: 1px solid white;
-    background-color: rgba(165, 165, 165, 0.3);
-    backdrop-filter: blur(10px);
-    box-shadow: 5px 5px 1px white;
+    border: 1px solid var(--black-new);
+    background-color: white;
+    box-shadow: 5px 5px 1px var(--black-new);
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -49,6 +48,7 @@
 .ProjectTitleContainer {
     width: fit-content;
     padding: 0.25em;
+    border-bottom: 1px solid var(--black-new);
 }
 
 .ProjectTitleContainer h2 {
@@ -80,6 +80,8 @@
 .Technology {
     display: flex;
     align-items: center;
+    text-transform: uppercase;
+    font-size: 0.8rem;
 }
 
 

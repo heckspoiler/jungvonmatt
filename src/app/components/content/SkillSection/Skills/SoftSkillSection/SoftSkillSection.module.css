@@ -7,14 +7,13 @@
     height: fit-content;
     width: fit-content;
     padding: 4rem;
-    border: 1px solid white;
-    background-color: rgba(165, 165, 165, 0.3);
-    backdrop-filter: blur(10px);
-    box-shadow: 5px 5px 1px white;
+    border: 1px solid var(--black-new);
+    background-color: white;
+    box-shadow: 5px 5px 1px var(--black-new);
 }
 
 .Main h1 {
-    color: var(--white-new);
+    color: var(--black-new);
     overflow: hidden;
 }
 

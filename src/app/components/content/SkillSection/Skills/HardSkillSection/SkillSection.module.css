@@ -14,12 +14,17 @@
     pointer-events: all;
     overflow: hidden;
     position: absolute;
-    color: var(--white-new);
+    color: var(--black-new);
     padding: 1rem;
-    border: 1px solid white;
-    background-color: rgba(165, 165, 165, 0.3);
+    border: 1px solid var(--black-new);
+    background-color: white;
     backdrop-filter: blur(10px);
-    box-shadow: 5px 5px 1px white;
+    box-shadow: 5px 5px 1px var(--black-new);
+}
+
+
+.Test:active {
+    background-color: var(--accent-green);
 }
 
 

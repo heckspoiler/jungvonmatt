@@ -12,8 +12,8 @@
     pointer-events: all;
     overflow: hidden;
     z-index: 10;
-    color: var(--white-new);
-    text-shadow: 2px 2px 1px var(--accent-orange);
+    color: var(--black-new);
+    text-shadow: 2px 2px 1px var(--white-new);
 }
 
 .Arrow {
@@ -30,13 +30,13 @@
 }
 
 .BlackBGContainer {
-    background-color: var(--white-new);
+    background-color: var(--black-new);
     overflow: hidden;
     box-shadow: 10px 1px 1px black;
 }
 
 .BlackBG {
-    color: var(--accent-orange);
+    color: var(--white-new);
     font-size: 4rem;
     padding: 0em 0.2em;
     text-shadow: 2px 2px 1px black;

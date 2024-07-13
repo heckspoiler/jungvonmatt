@@ -68,7 +68,7 @@ export default function Model() {
         <MeshDistortMaterial
           distort={scrollDistortion}
           speed={1.5}
-          color={new THREE.Color('white')}
+          color={new THREE.Color('black')}
         />
       </mesh>
 

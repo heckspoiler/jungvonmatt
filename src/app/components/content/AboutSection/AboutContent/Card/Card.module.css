@@ -8,11 +8,11 @@
 
 .Card {
     padding: 1rem 1rem 0rem 1rem;
-    background-color: rgba(165, 165, 165, 0.3);
-    backdrop-filter: blur(10px);
-    color: var(--white-new);
-    border: 1px solid var(--white-new);
-    box-shadow: 5px 5px 1px var(--white-new);
+    background-color: rgba(255, 255, 255, 1);
+
+    color: var(--black-new);
+    border: 1px solid var(--black-new);
+    box-shadow: 5px 5px 1px var(--black-new);
 }
 
 
@@ -50,7 +50,7 @@
 .InfoLine {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--white-new);
+    border-bottom: 1px solid var(--black-new);
     width: 100%;
     padding: 1rem 0;
 }
@@ -75,7 +75,7 @@
 }
 
 .InfoCell:nth-child(odd) {
-    border-right: 1px solid var(--white-new);
+    border-right: 1px solid var(--black-new);
 }
 
 
