@@ -94,14 +94,12 @@ export default function WorkSection({ isMobile }) {
               className={styles.TestCurb}
               ref={(el) => (testRefs.current[i] = el)}
             >
-              <Link href={element.url} target="_blank">
-                <Image
-                  src={element.imageUrl}
-                  height={220}
-                  width={440}
-                  alt={element.altText}
-                />
-              </Link>
+              <Image
+                src={element.imageUrl}
+                height={220}
+                width={440}
+                alt={element.altText}
+              />
               <div className={styles.ProjectTitleContainer}>
                 <h2>{element.title}</h2>
                 <h3>{element.description}</h3>
