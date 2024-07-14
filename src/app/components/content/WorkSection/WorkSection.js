@@ -95,7 +95,7 @@ export default function WorkSection({ isMobile }) {
               <Image
                 src={element.imageUrl}
                 height={240}
-                width={453}
+                width={452}
                 alt={element.altText}
               />
               <div className={styles.ProjectTitleContainer}>
