@@ -7,6 +7,7 @@ import AboutSection from './AboutSection/AboutSection';
 import StartSection from './TitleSection/StartSection';
 import SkillSection from './SkillSection/SkillSection';
 import WorkSection from './WorkSection/WorkSection';
+import ContactSection from './ContactSection/ContactSection';
 //gsap imports
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -50,7 +51,7 @@ export default function Content() {
 
   return (
     <ReactLenis className={styles.Main} ref={containerRef}>
-      <AnotherSquareSvg />
+      {/* <AnotherSquareSvg />
       <SquareSvg />
       <CubeSvg />
       <StartSection
@@ -60,8 +61,8 @@ export default function Content() {
       />
       <AboutSection isMobile={isMobile} />
       <SkillSection isMobile={isMobile} />
-      <WorkSection isMobile={isMobile} />
-      <div className={styles.Test}></div>
+      <WorkSection isMobile={isMobile} /> */}
+      <ContactSection />
     </ReactLenis>
   );
 }

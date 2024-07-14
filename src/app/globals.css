@@ -73,7 +73,9 @@
 }
 
 p {
-  font-family: var(--light-font)
+  font-family: var(--light-font);
+  line-height: 1.5;
+
 }
 
 * {
