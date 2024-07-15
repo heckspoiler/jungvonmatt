@@ -128,27 +128,16 @@ export default function ContactSection({ isMobile }) {
       const email = mailRef.current?.value || '';
       const message = messageRef.current?.value || '';
 
-      console.log('Form values when dropped:', { name, email, message });
-
       setName(name);
       setEmail(email);
       setMessage(message);
       setIsSent(true);
-
-      console.log('Updated store values:', {
-        name,
-        email,
-        message,
-        isSent: true,
-      });
 
       handleSubmit(name, email, message);
     }
   }, [state.isDropped, setName, setEmail, setMessage, setIsSent]);
 
   const handleSubmit = async (name, email, message) => {
-    console.log('handleSubmit called with:', { name, email, message });
-
     if (!name || !email || !message) {
       alert('Please fill out all fields');
       return;
@@ -171,8 +160,6 @@ export default function ContactSection({ isMobile }) {
           
         `,
       };
-
-      console.log('Sending email with data:', formData);
 
       try {
         const response = await fetch('/api/mail', {

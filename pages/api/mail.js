@@ -15,10 +15,6 @@ export default async function handler(req, res) {
   }
 
   const { SMTP_EMAIL, SMTP_PASSWORD } = process.env;
-  console.log('SMTP Credentials:', {
-    email: SMTP_EMAIL,
-    password: SMTP_PASSWORD ? '(set)' : '(not set)',
-  });
 
   if (!SMTP_EMAIL || !SMTP_PASSWORD) {
     console.error('SMTP credentials are missing');
@@ -35,7 +31,6 @@ export default async function handler(req, res) {
 
   try {
     const testResult = await transport.verify();
-    console.log('SMTP Verification:', testResult);
   } catch (error) {
     console.error('SMTP Verification Error:', error);
     return res.status(500).json({ error: 'SMTP Verification Failed' });
