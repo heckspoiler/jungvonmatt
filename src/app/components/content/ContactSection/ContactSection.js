@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import HoleSVG from './ContactSectionContent/svg/HoleSVG';
-import { Physics2DPlugin, ScrollTrigger, Draggable } from 'gsap/all';
+import { ScrollTrigger, Draggable } from 'gsap/all';
 
 import styles from './ContactSection.module.css';
 
@@ -14,54 +14,92 @@ export default function ContactSection({ isMobile }) {
   const emailRef = useRef();
   const containerRef = useRef();
   const instructionsRef = useRef();
-  const [isHovered, setIsHovered] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
   const svgContainerRef = useRef();
-  const [isEntered, setIsEntered] = useState(false);
-
-  // useEffect(() => {
-  //   if (isDragging) {
-  //     instructionsRef.current.innerHTML = 'Drop me above the hole!';
-  //   } else if (isClicked) {
-  //     instructionsRef.current.innerHTML = 'Now drag me!';
-  //   } else if (isHovered) {
-  //     instructionsRef.current.innerHTML = 'Fill in the form and drag me!';
-  //   } else {
-  //     instructionsRef.current.innerHTML = '';
-  //   }
-  // }, [isHovered, isClicked, isDragging, isEntered]);
+  const [state, setState] = useState({
+    isHovered: false,
+    isClicked: false,
+    isDragging: false,
+    isEntered: false,
+    isDropped: false,
+  });
 
   useGSAP(
     () => {
-      if (!emailRef.current || !containerRef.current) {
+      if (
+        !emailRef.current ||
+        !containerRef.current ||
+        !svgContainerRef.current
+      )
         return;
-      }
-      Draggable.create(emailRef.current, {
+
+      const draggable = Draggable.create(emailRef.current, {
         type: 'x,y',
         bounds: containerRef.current,
         inertia: true,
-        dragClickables: false,
-        onDragStart: function () {
-          setIsDragging(true);
-        },
-        onDragEnd: function () {
-          setTimeout(() => {
-            setIsDragging(false);
-          }, 0);
-        },
-        onPress: function () {
-          setIsClicked(true);
-        },
-        onRelease: function () {
-          if (!this.isDragging) {
-            setIsClicked(false);
+        onDragStart: () => updateState({ isDragging: true }),
+        onDragEnd: () => {
+          setTimeout(() => updateState({ isDragging: false }), 0);
+          checkIntersection();
+          if ({ isEntered: true }) {
+            updateState({ isDropped: true });
           }
         },
-      });
+        onPress: () => updateState({ isClicked: true }),
+        onRelease: function () {
+          if (!this.isDragging) {
+            updateState({ isClicked: false });
+          }
+        },
+        onDrag: checkIntersection,
+      })[0];
+
+      function checkIntersection() {
+        const emailBounds = emailRef.current.getBoundingClientRect();
+        const holeBounds = svgContainerRef.current.getBoundingClientRect();
+
+        const isIntersecting = !(
+          emailBounds.right < holeBounds.left ||
+          emailBounds.left > holeBounds.right ||
+          emailBounds.bottom < holeBounds.top ||
+          emailBounds.top > holeBounds.bottom
+        );
+
+        updateState({ isEntered: isIntersecting });
+      }
+
+      return () => {
+        if (draggable) draggable.kill();
+      };
     },
-    { scope: containerRef.current }
+
+    { scope: containerRef }
   );
+
+  const updateState = (newState) => {
+    setState((prevState) => ({ ...prevState, ...newState }));
+  };
+
+  useEffect(() => {
+    let message = '';
+    if (state.isEntered && state.isDragging) message = 'Drop me now!';
+    else if (state.isDragging) message = 'Drop me above the hole!';
+    else if (state.isClicked) message = 'Now drag me!';
+    else if (state.isHovered) message = 'Fill in the form and drag me!';
+    else if (state.isDropped) message = 'Wooooooooo!';
+
+    const tl = gsap.timeline();
+    if (state.isDropped) {
+      tl.to(emailRef.current, {
+        y: 300,
+        z: 400,
+        scale: 0,
+        duration: 0.4,
+        ease: 'power2.out',
+      });
+    }
+
+    if (instructionsRef.current) instructionsRef.current.innerHTML = message;
+  }, [state]);
 
   return (
     <section className={styles.Main} ref={containerRef}>
@@ -72,12 +110,10 @@ export default function ContactSection({ isMobile }) {
         <div
           className={styles.EmailContainer}
           ref={emailRef}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => {
-            setIsHovered(false);
-            setIsClicked(false);
-            setIsDragging(false);
-          }}
+          onMouseEnter={() => updateState({ isHovered: true })}
+          onMouseLeave={() =>
+            updateState({ isHovered: false, isClicked: false })
+          }
         >
           <div className={styles.Email}>
             <div className={styles.Instructions}>
@@ -86,18 +122,15 @@ export default function ContactSection({ isMobile }) {
             <div className={styles.UpperContent}>
               <h3>Throw me into the hole!</h3>
               <p>
-                I&apos;m really looking forward to hearing from you! If I&apos;m
-                not a fit for the position available, I&apos;d also be thrilled
-                to do an internship or traineeship.
+                I'm really looking forward to hearing from you! If I'm not a fit
+                for the position available, I'd also be thrilled to do an
+                internship or traineeship.
               </p>
             </div>
             <div className={styles.LowerContent}>
-              <input type="text" placeholder="Your Name"></input>
-              <input
-                type="email"
-                placeholder="yeswehireyou@youcoolguy.com"
-              ></input>
-              <textarea placeholder="Write what you want"></textarea>
+              <input type="text" placeholder="Your Name" />
+              <input type="email" placeholder="yeswehireyou@youcoolguy.com" />
+              <textarea placeholder="Write what you want" />
             </div>
           </div>
         </div>

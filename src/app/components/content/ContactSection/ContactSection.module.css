@@ -24,7 +24,6 @@
     display: flex;
     justify-content: space-between;
     height: 80vh;
-    background-color: red;
 }
 
 .EmailContainer {
@@ -99,8 +98,6 @@
     align-items: flex-end;
     height: fit-content;
     width: fit-content;
-    border: 1px solid black;
     height: 100%;
     pointer-events: all;
-    background-color: red;
 }
