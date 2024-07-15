@@ -20,17 +20,17 @@ export default function ContactSection({ isMobile }) {
   const svgContainerRef = useRef();
   const [isEntered, setIsEntered] = useState(false);
 
-  useEffect(() => {
-    if (isDragging) {
-      instructionsRef.current.innerHTML = 'Drop me above the hole!';
-    } else if (isClicked) {
-      instructionsRef.current.innerHTML = 'Now drag me!';
-    } else if (isHovered) {
-      instructionsRef.current.innerHTML = 'Fill in the form and drag me!';
-    } else {
-      instructionsRef.current.innerHTML = '';
-    }
-  }, [isHovered, isClicked, isDragging, isEntered]);
+  //   useEffect(() => {
+  //     if (isDragging) {
+  //       instructionsRef.current.innerHTML = 'Drop me above the hole!';
+  //     } else if (isClicked) {
+  //       instructionsRef.current.innerHTML = 'Now drag me!';
+  //     } else if (isHovered) {
+  //       instructionsRef.current.innerHTML = 'Fill in the form and drag me!';
+  //     } else {
+  //       instructionsRef.current.innerHTML = '';
+  //     }
+  //   }, [isHovered, isClicked, isDragging, isEntered]);
 
   useGSAP(
     () => {
