@@ -21,40 +21,6 @@ export default function ContactSection({ isMobile }) {
   const [isEntered, setIsEntered] = useState(false);
 
   useEffect(() => {
-    const options = {
-      root: emailRef.current,
-      rootMargin: '0px',
-      threshold: 0.1,
-    };
-
-    const handleIntersection = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          console.log('Email entered the hole!');
-          setIsEntered(true);
-          svgContainerRef.current.style.backgroundColor = 'lightblue';
-        } else {
-          console.log('Email left the hole!');
-          setIsEntered(false);
-          svgContainerRef.current.style.backgroundColor = 'transparent';
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersection, options);
-
-    if (emailRef.current && svgContainerRef.current) {
-      observer.observe(svgContainerRef.current);
-    }
-
-    return () => {
-      if (emailRef.current) {
-        observer.unobserve(svgContainerRef.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
     if (isDragging) {
       instructionsRef.current.innerHTML = 'Drop me above the hole!';
     } else if (isClicked) {
