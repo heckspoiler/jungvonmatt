@@ -51,7 +51,7 @@ export default function Content() {
 
   return (
     <ReactLenis className={styles.Main} ref={containerRef}>
-      {/* <AnotherSquareSvg />
+      <AnotherSquareSvg />
       <SquareSvg />
       <CubeSvg />
       <StartSection
@@ -61,7 +61,7 @@ export default function Content() {
       />
       <AboutSection isMobile={isMobile} />
       <SkillSection isMobile={isMobile} />
-      <WorkSection isMobile={isMobile} /> */}
+      <WorkSection isMobile={isMobile} />
       <ContactSection isMobile={isMobile} />
     </ReactLenis>
   );
