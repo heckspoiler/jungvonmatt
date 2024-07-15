@@ -105,7 +105,7 @@ export default function ContactSection({ isMobile }) {
     if (state.isEntered && state.isDragging) message = 'Drop me now!';
     else if (state.isDragging) message = 'Drop me above the hole!';
     else if (state.isClicked) message = 'Now drag me!';
-    else if (state.isHovered) message = 'Fill in the form and drag me!';
+    else if (state.isHovered) message = 'Fill in the form and grab it!';
     else if (state.isDropped) message = 'Wooooooooo!';
 
     const tl = gsap.timeline();
