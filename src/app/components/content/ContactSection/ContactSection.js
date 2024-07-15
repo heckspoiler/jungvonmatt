@@ -159,15 +159,7 @@ export default function ContactSection({ isMobile }) {
         to: email,
         subject: `Hello ${name}, thanks for reaching out!`,
         html: `
-          <h1>Hey ${name}!</h1>
-          <p>Thank you very much for contacting me. I will get back to you as soon as possible.      </p>
-         <p>I wish you a pleasant day. Best wishes, </p>
-         <h4>Carlo</h4> 
-         <br/>
-         <br/>
-         <br/>
-          <p><strong>Your Message:</strong> ${message}</p>
-          <p><strong>Email:</strong> ${email}</p>
+        
           
         `,
       };
