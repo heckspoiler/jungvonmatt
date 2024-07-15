@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
-import HoleSVG from './ContactSectionContent/svg/HoleSVG';
+// import HoleSVG from './ContactSectionContent/svg/HoleSVG';
 import { Physics2DPlugin, ScrollTrigger, Draggable } from 'gsap/all';
 
 import styles from './ContactSection.module.css';
