@@ -8,6 +8,7 @@ import StartSection from './TitleSection/StartSection';
 import SkillSection from './SkillSection/SkillSection';
 import WorkSection from './WorkSection/WorkSection';
 // import ContactSection from './ContactSection/ContactSection';
+
 //gsap imports
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
