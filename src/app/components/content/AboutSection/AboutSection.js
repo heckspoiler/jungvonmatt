@@ -5,7 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import AboutContent from './AboutContent/AboutContent';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-
 import styles from './AboutSection.module.css';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);

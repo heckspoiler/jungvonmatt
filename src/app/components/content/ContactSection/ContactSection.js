@@ -5,7 +5,8 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import HoleSVG from './ContactSectionContent/svg/HoleSVG';
 import { ScrollTrigger, Draggable } from 'gsap/all';
-
+import { useStore } from 'zustand';
+import mailStore from '../../../../../stores/mailStore';
 import styles from './ContactSection.module.css';
 
 gsap.registerPlugin(ScrollTrigger, Draggable, useGSAP);
@@ -23,6 +24,21 @@ export default function ContactSection({ isMobile }) {
     isDropped: false,
   });
   const formFieldsRef = useRef();
+  const nameRef = useRef();
+  const mailRef = useRef();
+  const messageRef = useRef();
+
+  // email stores
+  const {
+    isSent,
+    name,
+    email,
+    message,
+    setIsSent,
+    setName,
+    setEmail,
+    setMessage,
+  } = useStore(mailStore);
 
   useGSAP(
     () => {
@@ -77,7 +93,6 @@ export default function ContactSection({ isMobile }) {
         if (draggable) draggable.kill();
       };
     },
-
     { scope: containerRef }
   );
 
@@ -107,6 +122,86 @@ export default function ContactSection({ isMobile }) {
     if (instructionsRef.current) instructionsRef.current.innerHTML = message;
   }, [state]);
 
+  useEffect(() => {
+    if (state.isDropped) {
+      const name = nameRef.current?.value || '';
+      const email = mailRef.current?.value || '';
+      const message = messageRef.current?.value || '';
+
+      console.log('Form values when dropped:', { name, email, message });
+
+      setName(name);
+      setEmail(email);
+      setMessage(message);
+      setIsSent(true);
+
+      console.log('Updated store values:', {
+        name,
+        email,
+        message,
+        isSent: true,
+      });
+
+      handleSubmit(name, email, message);
+    }
+  }, [state.isDropped, setName, setEmail, setMessage, setIsSent]);
+
+  const handleSubmit = async (name, email, message) => {
+    console.log('handleSubmit called with:', { name, email, message });
+
+    if (!name || !email || !message) {
+      alert('Please fill out all fields');
+      return;
+    }
+
+    const sendMail = async () => {
+      const formData = {
+        to: email,
+        subject: `Hello ${name}, thanks for reaching out!`,
+        html: `
+          <h1>Hey ${name}!</h1>
+          <p>Thank you very much for contacting me. I'll get back to you as soon as possible.      </p>
+         <p>I wish you a pleasant day. Best wishes, </p>
+         <h4>Carlo</h4> 
+         <br/>
+         <br/>
+         <br/>
+          <p><strong>Your Message:</strong> ${message}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          
+        `,
+      };
+
+      console.log('Sending email with data:', formData);
+
+      try {
+        const response = await fetch('/api/mail', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          console.log('Email sent successfully');
+          const responseData = await response.json();
+          console.log('Server response:', responseData);
+        } else {
+          console.error('Failed to send email');
+          const errorData = await response.text();
+          console.error('Server error:', errorData);
+        }
+      } catch (error) {
+        console.error('Error sending email', error);
+      }
+    };
+
+    if (state.isDropped) {
+      await sendMail();
+    }
+  };
+
   return (
     <section className={styles.Main} ref={containerRef}>
       <h1>I hope I caught your interests. </h1>
@@ -133,10 +228,16 @@ export default function ContactSection({ isMobile }) {
                 internship or traineeship.
               </p>
             </div>
-            <div className={styles.LowerContent} ref={formFieldsRef}>
-              <input type="text" placeholder="Your Name" />
-              <input type="email" placeholder="yeswehireyou@youcoolguy.com" />
-              <textarea placeholder="Write what you want" />
+            <div ref={formFieldsRef}>
+              <form className={styles.LowerContent}>
+                <input type="text" placeholder="Your Name" ref={nameRef} />
+                <input
+                  type="email"
+                  placeholder="yeswehireyou@youcoolguy.com"
+                  ref={mailRef}
+                />
+                <textarea placeholder="Write what you want" ref={messageRef} />
+              </form>
             </div>
           </div>
         </div>
