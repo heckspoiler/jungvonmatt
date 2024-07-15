@@ -22,13 +22,15 @@ export default function ContactSection({ isMobile }) {
     isEntered: false,
     isDropped: false,
   });
+  const formFieldsRef = useRef();
 
   useGSAP(
     () => {
       if (
         !emailRef.current ||
         !containerRef.current ||
-        !svgContainerRef.current
+        !svgContainerRef.current ||
+        !formFieldsRef.current
       )
         return;
 
@@ -36,12 +38,16 @@ export default function ContactSection({ isMobile }) {
         type: 'x,y',
         bounds: containerRef.current,
         inertia: true,
+        allowEventDefault: true,
+        ignore: '.LowerContent, .LowerContent *',
         onDragStart: () => updateState({ isDragging: true }),
         onDragEnd: () => {
           setTimeout(() => updateState({ isDragging: false }), 0);
           checkIntersection();
-          if ({ isEntered: true }) {
+          if ({ isEntered: true } && { isClicked: false }) {
             updateState({ isDropped: true });
+          } else {
+            updateState({ isDropped: false });
           }
         },
         onPress: () => updateState({ isClicked: true }),
@@ -88,10 +94,10 @@ export default function ContactSection({ isMobile }) {
     else if (state.isDropped) message = 'Wooooooooo!';
 
     const tl = gsap.timeline();
-    if (state.isDropped) {
+    if (state.isDropped && state.isEntered && !state.isClicked) {
+      const tl = gsap.timeline();
       tl.to(emailRef.current, {
-        y: 300,
-        z: 400,
+        y: 200,
         scale: 0,
         duration: 0.4,
         ease: 'power2.out',
@@ -127,7 +133,7 @@ export default function ContactSection({ isMobile }) {
                 internship or traineeship.
               </p>
             </div>
-            <div className={styles.LowerContent}>
+            <div className={styles.LowerContent} ref={formFieldsRef}>
               <input type="text" placeholder="Your Name" />
               <input type="email" placeholder="yeswehireyou@youcoolguy.com" />
               <textarea placeholder="Write what you want" />

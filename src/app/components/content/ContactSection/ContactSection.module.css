@@ -101,3 +101,23 @@
     height: 100%;
     pointer-events: all;
 }
+
+.Instructions {
+    background-color: white;
+    border: 1px solid var(--black-new);
+    box-shadow: 4px 4px 1px var(--black-new);
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.Instructions h3 {
+    text-align: center;
+}
+
+
+.EmailContainer:hover .Instructions {
+    visibility: visible;
+}
