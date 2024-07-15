@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import HoleSVG from './ContactSectionContent/svg/HoleSVG';
@@ -10,9 +10,61 @@ import styles from './ContactSection.module.css';
 
 gsap.registerPlugin(ScrollTrigger, Draggable, useGSAP);
 
-export default function ContactSection() {
+export default function ContactSection({ isMobile }) {
   const emailRef = useRef();
   const containerRef = useRef();
+  const instructionsRef = useRef();
+  const [isHovered, setIsHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const svgContainerRef = useRef();
+  const [isEntered, setIsEntered] = useState(false);
+
+  useEffect(() => {
+    const options = {
+      root: emailRef.current,
+      rootMargin: '0px',
+      threshold: 0.1,
+    };
+
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log('Email entered the hole!');
+          setIsEntered(true);
+          svgContainerRef.current.style.backgroundColor = 'lightblue';
+        } else {
+          console.log('Email left the hole!');
+          setIsEntered(false);
+          svgContainerRef.current.style.backgroundColor = 'transparent';
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, options);
+
+    if (emailRef.current && svgContainerRef.current) {
+      observer.observe(svgContainerRef.current);
+    }
+
+    return () => {
+      if (emailRef.current) {
+        observer.unobserve(svgContainerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isDragging) {
+      instructionsRef.current.innerHTML = 'Drop me above the hole!';
+    } else if (isClicked) {
+      instructionsRef.current.innerHTML = 'Now drag me!';
+    } else if (isHovered) {
+      instructionsRef.current.innerHTML = 'Fill in the form and drag me!';
+    } else {
+      instructionsRef.current.innerHTML = '';
+    }
+  }, [isHovered, isClicked, isDragging, isEntered]);
 
   useGSAP(
     () => {
@@ -24,17 +76,21 @@ export default function ContactSection() {
         bounds: containerRef.current,
         inertia: true,
         dragClickables: false,
-
         onDragStart: function () {
-          this.isDragging = true;
+          setIsDragging(true);
         },
         onDragEnd: function () {
           setTimeout(() => {
-            this.isDragging = false;
+            setIsDragging(false);
           }, 0);
         },
         onPress: function () {
-          this.isDragging = false;
+          setIsClicked(true);
+        },
+        onRelease: function () {
+          if (!this.isDragging) {
+            setIsClicked(false);
+          }
         },
       });
     },
@@ -43,11 +99,24 @@ export default function ContactSection() {
 
   return (
     <section className={styles.Main} ref={containerRef}>
-      <h1>I hope I caught your interests. If so, drop me a line below. </h1>
+      <h1>I hope I caught your interests. </h1>
+      <h3> If so, drop me a line below.</h3>
 
       <div className={styles.ContentContainer}>
-        <div className={styles.EmailContainer} ref={emailRef}>
+        <div
+          className={styles.EmailContainer}
+          ref={emailRef}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => {
+            setIsHovered(false);
+            setIsClicked(false);
+            setIsDragging(false);
+          }}
+        >
           <div className={styles.Email}>
+            <div className={styles.Instructions}>
+              <h3 ref={instructionsRef}></h3>
+            </div>
             <div className={styles.UpperContent}>
               <h3>Throw me into the hole!</h3>
               <p>
@@ -66,7 +135,7 @@ export default function ContactSection() {
             </div>
           </div>
         </div>
-        <div className={styles.SVGContainer}>
+        <div className={styles.SVGContainer} ref={svgContainerRef}>
           <div>
             <HoleSVG />
           </div>
