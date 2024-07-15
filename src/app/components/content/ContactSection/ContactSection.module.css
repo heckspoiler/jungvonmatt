@@ -101,4 +101,5 @@
     border: 1px solid black;
     height: 100%;
     pointer-events: all;
+    background-color: red;
 }
