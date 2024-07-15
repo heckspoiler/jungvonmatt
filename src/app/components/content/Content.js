@@ -62,7 +62,7 @@ export default function Content() {
       <AboutSection isMobile={isMobile} />
       <SkillSection isMobile={isMobile} />
       <WorkSection isMobile={isMobile} />
-      <ContactSection isMobile={isMobile} />
+      {/* <ContactSection isMobile={isMobile} /> */}
     </ReactLenis>
   );
 }
