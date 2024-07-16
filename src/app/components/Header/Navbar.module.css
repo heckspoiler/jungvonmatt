@@ -6,13 +6,24 @@
     justify-content: flex-end;
     pointer-events: all;
     z-index: 100;
+    padding-right: 2rem;
+}
+
+.Header .Container {
+    position: relative;
+    margin-top: 1rem;
+    display: flex;
+    height: 2rem;
+    padding: 0.2rem;
+    overflow: hidden;
 }
 
 .Header ul {
     display: flex;
-    gap: 4rem;
-    padding: 1em 4em 1em 0em;
-    align-items: flex-end;
+    align-items: center;
+    flex-direction: column;
+    height: fit-content;
+    transition: transform 0.3s ease-in-out;
 }
 
 .Header li {
@@ -20,11 +31,15 @@
     list-style-type: none;
     position: relative;
     overflow: hidden;
-    padding: 0.2rem;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: color 0.4s cubic-bezier(0.23, 1, 0.320, 1)
+    transition: color 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    font-size: 1.2rem;
+    height: fit-content;
+    width: fit-content;
+    height: 2rem;
 }
 
 /* .Header li:hover {

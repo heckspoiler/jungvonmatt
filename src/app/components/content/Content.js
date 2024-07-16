@@ -20,6 +20,8 @@ import SquareSvg from './TitleSection/svgContents/SquareSvg';
 import AnotherSquareSvg from './TitleSection/svgContents/AnotherSquareSvg';
 import CubeSvg from './TitleSection/svgContents/CubeSvg';
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis';
+import intersectionStore from '../../../../stores/intersection';
+import { useStore } from 'zustand';
 
 gsap.registerPlugin(useGSAP, ScrollSmoother);
 
@@ -28,9 +30,14 @@ export default function Content() {
   const setIsMobile = isMobileStore().setIsMobile;
   const isMobile = isMobileStore().isMobile;
 
+  const { currentSection, setCurrentSection } = useStore(intersectionStore);
+
   // refs
   const secondContainer = useRef();
   const containerRef = useRef();
+  const homeRef = useRef();
+  const aboutRef = useRef();
+  const observerRef = useRef();
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,22 +55,62 @@ export default function Content() {
     gsap.to(window, { duration: 0, scrollTo: 0 });
   });
 
-  const lenis = useLenis(({ scroll }) => {});
+  const intersectionFunction = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        setCurrentSection(id);
+      }
+    });
+  };
+
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    treshold: 0.2,
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(intersectionFunction, options);
+
+    const sections = document.querySelectorAll(
+      '#home, #about, #work, #contact'
+    ); // Add more section IDs as needed
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log('Current section:', currentSection);
+  }, [currentSection]);
 
   return (
-    <ReactLenis className={styles.Main} ref={containerRef}>
-      <AnotherSquareSvg />
-      <SquareSvg />
-      <CubeSvg />
-      <StartSection
-        styles={styles}
-        isMobile={isMobile}
-        secondContainer={secondContainer}
-      />
-      <AboutSection isMobile={isMobile} />
-      <SkillSection isMobile={isMobile} />
-      <WorkSection isMobile={isMobile} />
-      <ContactSection isMobile={isMobile} />
+    <ReactLenis className={styles.Main}>
+      <section ref={containerRef} id="container">
+        <div ref={homeRef} id="home">
+          <AnotherSquareSvg />
+          <SquareSvg />
+          <CubeSvg />
+          <StartSection
+            styles={styles}
+            isMobile={isMobile}
+            secondContainer={secondContainer}
+          />
+        </div>
+        <div ref={aboutRef} id="about">
+          <AboutSection isMobile={isMobile} />
+          <SkillSection isMobile={isMobile} />
+        </div>
+        <div id="work">
+          <WorkSection isMobile={isMobile} />
+        </div>
+        <div id="contact">
+          <ContactSection isMobile={isMobile} />
+        </div>
+      </section>
     </ReactLenis>
   );
 }

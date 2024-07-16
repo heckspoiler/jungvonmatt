@@ -109,7 +109,14 @@ export default function ContactSection({ isMobile }) {
     else if (state.isDropped) message = 'Wooooooooo!';
 
     const tl = gsap.timeline();
-    if (state.isDropped && state.isEntered && !state.isClicked) {
+    if (
+      state.isDropped &&
+      state.isEntered &&
+      !state.isClicked &&
+      nameRef.current?.value !== '' &&
+      emailRef.current?.value !== '' &&
+      messageRef.current?.value !== ''
+    ) {
       const tl = gsap.timeline();
       tl.to(emailRef.current, {
         y: 200,
@@ -124,9 +131,9 @@ export default function ContactSection({ isMobile }) {
 
   useEffect(() => {
     if (state.isDropped) {
-      const name = nameRef.current?.value || '';
-      const email = mailRef.current?.value || '';
-      const message = messageRef.current?.value || '';
+      const name = nameRef.current?.value;
+      const email = mailRef.current?.value;
+      const message = messageRef.current?.value;
 
       setName(name);
       setEmail(email);
