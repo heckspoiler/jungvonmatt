@@ -29,6 +29,20 @@
     background-color: transparent;
 }
 
+.Mobile {
+    font-size: 0.8rem;
+    background-color: white;
+    display: flex;
+    padding: 1rem;
+    transform: translateY(18rem)
+}
+
+.Mobile h1 {
+    text-align: center;
+}
+
+
+
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {}

@@ -72,7 +72,9 @@
   --accent-green: #a5fa4a;
 }
 
-p {
+p,
+input,
+textarea {
   font-family: var(--light-font);
   line-height: 1.5;
 

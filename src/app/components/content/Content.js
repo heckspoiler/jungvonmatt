@@ -41,7 +41,7 @@ export default function Content() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 1000);
     };
 
     handleResize();
@@ -89,28 +89,34 @@ export default function Content() {
 
   return (
     <ReactLenis className={styles.Main}>
-      <section ref={containerRef} id="container">
-        <div ref={homeRef} id="home">
-          <AnotherSquareSvg />
-          <SquareSvg />
-          <CubeSvg />
-          <StartSection
-            styles={styles}
-            isMobile={isMobile}
-            secondContainer={secondContainer}
-          />
-        </div>
-        <div ref={aboutRef} id="about">
-          <AboutSection isMobile={isMobile} />
-          <SkillSection isMobile={isMobile} />
-        </div>
-        <div id="work">
-          <WorkSection isMobile={isMobile} />
-        </div>
-        <div id="contact">
-          <ContactSection isMobile={isMobile} />
-        </div>
-      </section>
+      {isMobile ? (
+        <section className={styles.Mobile}>
+          <h1>Only on wider screens available!</h1>
+        </section>
+      ) : (
+        <section ref={containerRef} id="container">
+          <div ref={homeRef} id="home">
+            <AnotherSquareSvg />
+            <SquareSvg />
+            <CubeSvg />
+            <StartSection
+              styles={styles}
+              isMobile={isMobile}
+              secondContainer={secondContainer}
+            />
+          </div>
+          <div ref={aboutRef} id="about">
+            <AboutSection isMobile={isMobile} />
+            <SkillSection isMobile={isMobile} />
+          </div>
+          <div id="work">
+            <WorkSection isMobile={isMobile} />
+          </div>
+          <div id="contact">
+            <ContactSection isMobile={isMobile} />
+          </div>
+        </section>
+      )}
     </ReactLenis>
   );
 }

@@ -199,7 +199,7 @@ export default function ContactSection({ isMobile }) {
   return (
     <section className={styles.Main} ref={containerRef}>
       <h1>I hope I caught your interests. </h1>
-      <h3> If so, drop me a line below.</h3>
+      <h3> If so, or if you have any other questions, drop me a line below.</h3>
 
       <div className={styles.ContentContainer}>
         <div
@@ -225,12 +225,11 @@ export default function ContactSection({ isMobile }) {
             <div ref={formFieldsRef}>
               <form className={styles.LowerContent}>
                 <input type="text" placeholder="Your Name" ref={nameRef} />
-                <input
-                  type="email"
-                  placeholder="yeswehireyou@youcoolguy.com"
-                  ref={mailRef}
+                <input type="email" placeholder="Your Mail" ref={mailRef} />
+                <textarea
+                  placeholder="What's the meaning of life? (Hint: not 42)"
+                  ref={messageRef}
                 />
-                <textarea placeholder="Write what you want" ref={messageRef} />
               </form>
             </div>
           </div>

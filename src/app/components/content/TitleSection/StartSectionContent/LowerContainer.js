@@ -29,13 +29,13 @@ export default function LowerContainer({ secondContainer }) {
 
     tl.fromTo(
       split.chars,
-      { y: -500, opacity: 1 },
+      { y: -200, opacity: 1 },
       { y: 0, opacity: 1, duration: 0.6, ease: 'circ.out', stagger: -0.02 }
     ).to(
       split.chars,
       {
         overflow: 'normal',
-        y: -500,
+        y: -200,
         duration: 0.8,
         stagger: 0.02,
       },

@@ -41,9 +41,9 @@ export default function HardSkillSection({ isMobile }) {
 
       gsap.set(elements, {
         visibility: 'hidden',
-        y: '-100',
+        y: '-500',
         x: (index) => `${index * 100}`,
-        opacity: 0,
+        scale: 0,
         rotation: () => gsap.utils.random(-120, 120),
       });
 
@@ -59,6 +59,7 @@ export default function HardSkillSection({ isMobile }) {
             gsap.to(elements, {
               duration: 2,
               opacity: 1,
+              scale: 1,
               x: (index) => `${index * 100}`,
               visibility: 'visible',
               y: (_, target) =>
