@@ -62,7 +62,7 @@ export default function RightTitleSection({ styles, containerRef }) {
     <div className={styles.RightContainer} ref={stickyRef}>
       <div className={styles.BlackBGContainer} ref={boxRef}>
         <h1 className={styles.BlackBG} ref={textRef}>
-          New Opportunity
+          a developer?
         </h1>
       </div>
     </div>

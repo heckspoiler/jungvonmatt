@@ -67,7 +67,7 @@ export default function TitleSection({ styles, isMobile, containerRef }) {
     <div ref={containerRef}>
       <div className={styles.Content} ref={boxRef}>
         <h1 className={styles.MainTitle} ref={textRef}>
-          Missed Chance
+          Do you need
         </h1>
       </div>
     </div>
