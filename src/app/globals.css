@@ -36,11 +36,6 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   max-height: 100svh;
-
-}
-
-body {
-  min-height: 100vh;
   margin: 0;
   background-color: var(--white);
   overflow: hidden;
@@ -48,12 +43,6 @@ body {
 
 }
 
-
-h1 {
-  font-size: 3rem;
-  text-transform: uppercase;
-  font-variation-settings: "wght" 600;
-}
 
 a {
   color: inherit;
