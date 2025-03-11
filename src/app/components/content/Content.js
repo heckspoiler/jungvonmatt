@@ -1,6 +1,5 @@
 'use client';
 import React, { useRef, useEffect } from 'react';
-import Link from 'next/link';
 import styles from './Content.module.css';
 
 import { isMobileStore } from '../../../../stores/isMobileStore';
