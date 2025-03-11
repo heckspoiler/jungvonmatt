@@ -2,13 +2,35 @@
     position: absolute;
     height: fit-content;
     width: fit-content;
-    transform: translateY(110vh);
     z-index: -1;
-    top: 0;
-    right: 0;
+    top: 20vh;
+    right: 80vw;
+    animation: floating 4s linear infinite;
 }
 
 .Container svg {
-    height: 2rem;
-    width: 2rem;
+    height: 10rem;
+    width: 10rem;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-7px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(0deg);
+    }
+
+    75% {
+        transform: translateY(-7px) rotate(2deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
 }

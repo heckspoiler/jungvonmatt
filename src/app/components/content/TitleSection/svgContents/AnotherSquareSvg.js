@@ -10,31 +10,6 @@ export default function AnotherSquareSvg() {
   const containerRef = useRef();
   const svgRef = useRef();
 
-  useGSAP(() => {
-    if (!containerRef.current) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top bottom',
-        scrub: 0.8,
-        end: 'bottom top',
-        toggleActions: 'play none none reverse',
-      },
-    });
-
-    tl.to(svgRef.current, {
-      scale: 8,
-      y: -500,
-      x: -1800,
-      rotateX: 1800,
-      duration: 3.8,
-    });
-
-    return () => {
-      tl.kill();
-    };
-  }, []);
   return (
     <div className={styles.Container} ref={containerRef}>
       <svg
