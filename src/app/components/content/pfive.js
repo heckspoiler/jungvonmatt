@@ -5,6 +5,11 @@ export const pfiveContent = {
       url: 'https://p5js.org/',
     },
     {
+      name: 'Examples',
+      url: 'https://p5js.org/examples/',
+    },
+
+    {
       name: 'Documentation p5.js',
       url: 'https://p5js.org/reference/',
     },
