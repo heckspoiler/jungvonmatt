@@ -38,13 +38,17 @@
 
 .link {
     height: fit-content;
-    padding: 1rem;
+
     text-transform: uppercase;
     border: 1px solid var(--black);
     background-color: var(--white);
     display: block;
     height: fit-content;
     width: fit-content;
+}
+
+.link a div {
+    padding: 1rem;
 }
 
 .Mobile {
