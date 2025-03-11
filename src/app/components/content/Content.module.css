@@ -1,32 +1,50 @@
 .Main {
-    position: relative;
-}
-
-.TitleContainer {
-    display: flex;
-    width: fit-content;
-    flex-direction: row;
-    height: 23rem;
-    z-index: 2;
-    padding: 4em;
-    width: 100%;
-    margin-top: 4em;
-}
-
-.Test {
-    min-height: 100vh;
-    width: 100vw;
-}
-
-.Observer {
     position: fixed;
+    z-index: 1000000;
+}
+
+.content {
     height: 100vh;
     width: 100vw;
-    top: 0;
-    left: 0;
-    pointer-events: none;
+}
+
+.pfiveContent {
+    height: fit-content;
+    width: fit-content;
+}
+
+.documentation {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.linkContainer {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    position: relative;
+    gap: 1rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.link {
+    height: fit-content;
+    padding: 1rem;
+    text-transform: uppercase;
     border: 1px solid black;
-    background-color: transparent;
+    background-color: var(--accent-green);
+    display: block;
+    height: fit-content;
+    width: fit-content;
 }
 
 .Mobile {

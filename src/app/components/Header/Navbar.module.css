@@ -5,7 +5,6 @@
     display: flex;
     justify-content: flex-end;
     pointer-events: all;
-    z-index: 100;
     padding-right: 2rem;
 }
 
@@ -52,7 +51,6 @@
     position: absolute;
     width: 100%;
     content: "";
-    z-index: -1;
     transform: translateX(-110%);
     transition: transform 0.4s cubic-bezier(0.23, 1, 0.320, 1)
 }

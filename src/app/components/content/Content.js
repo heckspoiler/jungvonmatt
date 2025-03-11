@@ -1,33 +1,21 @@
 'use client';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
+import Link from 'next/link';
 import styles from './Content.module.css';
 
-// section imports
-
-import StartSection from './TitleSection/StartSection';
-
-// varia imports
 import { isMobileStore } from '../../../../stores/isMobileStore';
-import SquareSvg from './TitleSection/svgContents/SquareSvg';
-import AnotherSquareSvg from './TitleSection/svgContents/AnotherSquareSvg';
-import CubeSvg from './TitleSection/svgContents/CubeSvg';
-import { ReactLenis } from '@studio-freight/react-lenis';
-import intersectionStore from '../../../../stores/intersection';
-import { useStore } from 'zustand';
+
+import { pfiveContent } from './pfive'; // Make sure this path matches where your file is
+
+import LinkComponent from './LinkComponent';
 
 export default function Content() {
   //stores
   const setIsMobile = isMobileStore().setIsMobile;
   const isMobile = isMobileStore().isMobile;
 
-  const { currentSection, setCurrentSection } = useStore(intersectionStore);
-
   // refs
-  const secondContainer = useRef();
   const containerRef = useRef();
-  const homeRef = useRef();
-  const aboutRef = useRef();
-  const observerRef = useRef();
 
   useEffect(() => {
     const handleResize = () => {
@@ -42,20 +30,31 @@ export default function Content() {
   }, [isMobile, setIsMobile]);
 
   return (
-    <ReactLenis className={styles.Main}>
+    <div className={styles.Main}>
       {isMobile ? (
         <section className={styles.Mobile}>
           <h1>Only on wider screens available!</h1>
         </section>
       ) : (
         <section ref={containerRef} id="container">
-          <div ref={homeRef} id="home">
-            <AnotherSquareSvg />
-            <SquareSvg />
-            <CubeSvg />
+          <div className={styles.content}>
+            <div className={styles.pfiveContent}>
+              <div className={styles.documentation}>
+                <div className={styles.documentationTitle}>
+                  <h2>DOCUMENTATIONS</h2>
+                </div>
+                <div className={styles.linkContainer}>
+                  {pfiveContent.documentations.map((doc, index) => (
+                    <div key={index} className={styles.link}>
+                      <LinkComponent name={doc.name} url={doc.url} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       )}
-    </ReactLenis>
+    </div>
   );
 }

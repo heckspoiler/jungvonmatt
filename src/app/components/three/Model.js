@@ -1,48 +1,14 @@
 'use client';
-import React, { useRef, useEffect, useState } from 'react';
-import { useThree, useFrame } from '@react-three/fiber';
+import React, { useRef, useEffect } from 'react';
+import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import {
-  useGLTF,
-  OrbitControls,
-  Environment,
-  MeshDistortMaterial,
-} from '@react-three/drei';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useGLTF, OrbitControls, Environment } from '@react-three/drei';
 
 export default function Model() {
   const meshRef = useRef();
   const { nodes } = useGLTF('/assets/glassy.glb');
   const timeRef = useRef(0);
   const scrollProgressRef = useRef(0);
-  const [scrollDistortion, setScrollDistortion] = useState(0);
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  const calcDelta = () => {
-    const position = window.scrollY;
-    setTimeout(() => {
-      setScrollPosition(0);
-    }, 100);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', calcDelta);
-  }, [scrollPosition]);
-
-  useGSAP(() => {
-    ScrollTrigger.create({
-      start: 0,
-      end: 'max',
-      onUpdate: (self) => {
-        scrollProgressRef.current = self.progress;
-        setScrollDistortion(self.progress * 0.4);
-      },
-    });
-  }, []);
 
   useEffect(() => {
     if (meshRef.current) {

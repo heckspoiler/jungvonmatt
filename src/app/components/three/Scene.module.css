@@ -1,7 +1,8 @@
 .Canvas {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
+    z-index: -1;
 }
 
 /* Enable hover only on non-touch devices */
