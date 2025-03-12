@@ -32,10 +32,10 @@ export const pfiveContent = {
       name: 'Starter Template',
       url: 'https://editor.p5js.org/carloozed/sketches/qyhKaylTC5',
     },
-    // {
-    //   name: 'Final Code',
-    //   url: 'https://editor.p5js.org/carloozed/sketches/qyhKaylTC5',
-    // },
+    {
+      name: 'Final Code',
+      url: 'https://editor.p5js.org/carloozed/sketches/azKbUj5E_',
+    },
   ],
 
   tutorials: [
