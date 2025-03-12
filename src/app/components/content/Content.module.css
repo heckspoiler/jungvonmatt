@@ -9,8 +9,8 @@
     height: 100vh;
     width: 100vw;
     display: flex;
-    flex-direction: column;
-    gap: 8rem;
+    flex-direction: row;
+    gap: 28vw;
 }
 
 .pfiveContent {
