@@ -30,7 +30,7 @@
     align-items: center;
 }
 
-.editors {}
+
 
 .linkContainer {
     display: flex;
@@ -64,6 +64,7 @@
     border-radius: 40px;
     color: #ED225D;
     background-color: var(--accent-green);
+    font-variation-settings: "wght" 600;
 }
 
 .link a div:hover {
