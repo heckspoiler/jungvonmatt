@@ -51,3 +51,8 @@ a {
   z-index: 100 !important;
   pointer-events: all;
 }
+
+h2 {
+  font-size: 2rem;
+  color: #ED225D;
+}

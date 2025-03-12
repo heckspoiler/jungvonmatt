@@ -7,6 +7,7 @@ import { isMobileStore } from '../../../../stores/isMobileStore';
 import { pfiveContent } from './pfive'; // Make sure this path matches where your file is
 
 import LinkComponent from './LinkComponent';
+import Footer from '../Footer/Footer';
 
 export default function Content() {
   //stores
@@ -79,6 +80,7 @@ export default function Content() {
                 </div>
               </div>
             </div>
+            <Footer />
           </div>
         </section>
       )}

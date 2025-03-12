@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './page.module.css';
 
-import Link from 'next/link';
+import Footer from './components/Footer/Footer';
 
 // components import
 import Scene from './components/three/Scene';

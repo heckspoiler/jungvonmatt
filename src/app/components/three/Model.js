@@ -22,9 +22,8 @@ export default function Model() {
   useFrame((_, delta) => {
     if (meshRef.current) {
       timeRef.current += delta;
-      meshRef.current.rotation.z += 0.1 * delta;
+      meshRef.current.rotation.z += Math.sin(timeRef.current) * 0.001;
       meshRef.current.position.y += Math.sin(timeRef.current) * 0.001;
-      meshRef.current.rotation.z = scrollProgressRef.current * Math.PI;
     }
   });
 

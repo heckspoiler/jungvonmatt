@@ -1,12 +1,16 @@
 .Main {
-    position: fixed;
     z-index: 1000000;
+    top: 0;
+    left: 0;
+    padding: 1rem 2rem;
 }
 
 .content {
     height: 100vh;
     width: 100vw;
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
 }
 
 .pfiveContent {
@@ -45,7 +49,6 @@
     height: fit-content;
 
     text-transform: uppercase;
-    border: 1px solid var(--black);
     border-radius: 40px;
     display: block;
     height: fit-content;
@@ -57,18 +60,21 @@
     width: 100%;
     text-align: center;
     background-color: var(--accent-green);
+    border: 2px solid #ED225D;
     border-radius: 40px;
+    color: #ED225D;
+    background-color: var(--accent-green);
 }
 
 .link a div:hover {
-    background-color: #ED225D;
     color: var(--white);
+    background-color: #ED225D;
 
 }
 
 .Mobile {
     font-size: 0.8rem;
-    background-color: white;
+    background-color: #ED225D;
     display: flex;
     padding: 1rem;
     transform: translateY(18rem)

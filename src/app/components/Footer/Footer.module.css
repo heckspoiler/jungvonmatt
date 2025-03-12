@@ -1,0 +1,14 @@
+.footer {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.footer img {
+    height: 3rem
+}
+
+.footer a {
+    width: fit-content;
+}
