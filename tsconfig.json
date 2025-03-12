@@ -24,7 +24,8 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/app/components/content/LinkComponent.js"
+    "src/app/components/content/LinkComponent.js",
+    "src/app/components/Footer/Footer.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -11,4 +11,11 @@
 
 .footer a {
     width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer a img {
+    transform: rotate(-45deg)
 }

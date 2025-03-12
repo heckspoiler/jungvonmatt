@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from '../../../../public/svg/ozelot_pink.svg';
+import arrow from '../../../../public/svg/arrow.svg';
 
 import Image from 'next/image';
 
@@ -11,13 +11,16 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <Link href="https://ozelot.ltd/" target="_blank">
-        <Image src={logo} alt="Ozelot" />
+        <h2>OZELOT STUDIOS</h2>
+        <Image src={arrow} alt="arrow" width={22} height={22} />
       </Link>
-      <Link href="mailto:carlo@ozelot.ltd" target="_blank">
+      <a href="/workshop_downloads.zip" download>
         <h2>DOWNLOADS</h2>
-      </Link>
+        <Image src={arrow} alt="arrow" width={22} height={22} />
+      </a>
       <Link href="mailto:carlo@ozelot.ltd" target="_blank">
         <h2>EMAIL</h2>
+        <Image src={arrow} alt="arrow" width={22} height={22} />
       </Link>
     </footer>
   );
