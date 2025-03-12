@@ -31,18 +31,23 @@ export default function Model() {
   return (
     <group>
       <mesh ref={meshRef} geometry={nodes.Curve002.geometry} scale={3}>
-        <meshStandardMaterial
-          color={new THREE.Color('white')}
-          metalness={1}
-          roughness={0.2}
-          envMapIntensity={1.5}
+        <meshPhysicalMaterial
+          color={new THREE.Color('#ED225D')}
+          metalness={0.2}
+          roughness={0.1}
+          transmission={0.95}
+          thickness={0.5}
+          envMapIntensity={2}
+          clearcoat={1}
+          clearcoatRoughness={0.1}
+          ior={1.5}
         />
       </mesh>
 
       <OrbitControls
-        minAzimuthAngle={-Math.PI / 4}
-        maxAzimuthAngle={Math.PI / 4}
-        minPolarAngle={Math.PI / 4}
+        minAzimuthAngle={-Math.PI / 6}
+        maxAzimuthAngle={Math.PI / 6}
+        minPolarAngle={Math.PI / 6}
         maxPolarAngle={(Math.PI * 3) / 4}
         enableZoom={false}
       />

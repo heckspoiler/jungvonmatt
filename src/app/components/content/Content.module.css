@@ -34,6 +34,7 @@
     justify-content: center;
     align-items: center;
 
+
 }
 
 .link {
@@ -41,14 +42,24 @@
 
     text-transform: uppercase;
     border: 1px solid var(--black);
-    background-color: var(--white);
+    border-radius: 40px;
     display: block;
     height: fit-content;
-    width: fit-content;
+    width: 100%;
 }
 
 .link a div {
     padding: 1rem;
+    width: 100%;
+    text-align: center;
+    background-color: var(--accent-green);
+    border-radius: 40px;
+}
+
+.link a div:hover {
+    background-color: #ED225D;
+    color: var(--white);
+
 }
 
 .Mobile {
