@@ -39,11 +39,39 @@ export default function Content() {
           <div className={styles.content}>
             <div className={styles.pfiveContent}>
               <div className={styles.documentation}>
-                <div className={styles.documentationTitle}>
-                  <h2>DOCUMENTATIONS</h2>
+                <div className={styles.title}>
+                  <h2>DOCS</h2>
                 </div>
                 <div className={styles.linkContainer}>
                   {pfiveContent.documentations.map((doc, index) => (
+                    <div key={index} className={styles.link}>
+                      <LinkComponent name={doc.name} url={doc.url} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Templates Section */}
+              <div className={styles.editors}>
+                <div className={styles.title}>
+                  <h2>CODE</h2>
+                </div>
+                <div className={styles.linkContainer}>
+                  {pfiveContent.templates.map((doc, index) => (
+                    <div key={index} className={styles.link}>
+                      <LinkComponent name={doc.name} url={doc.url} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Tutorials Section */}
+
+              <div className={styles.editors}>
+                <div className={styles.title}>
+                  <h2>TUTORIALS </h2>
+                </div>
+                <div className={styles.linkContainer}>
+                  {pfiveContent.tutorials.map((doc, index) => (
                     <div key={index} className={styles.link}>
                       <LinkComponent name={doc.name} url={doc.url} />
                     </div>
