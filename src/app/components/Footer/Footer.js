@@ -14,6 +14,10 @@ export default function Footer() {
         <h2>OZELOT STUDIOS</h2>
         <Image src={arrow} alt="arrow" width={22} height={22} />
       </Link>
+      <Link href="https://ozelot-ltd.bandcamp.com/" target="_blank">
+        <h2>BANDCAMP</h2>
+        <Image src={arrow} alt="arrow" width={22} height={22} />
+      </Link>
       <a href="/workshop_downloads.zip" download>
         <h2>DOWNLOADS</h2>
         <Image src={arrow} alt="arrow" width={22} height={22} />
