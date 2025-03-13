@@ -21,6 +21,10 @@ export const pfiveContent = {
       name: 'Docs ml5.js',
       url: 'https://docs.ml5js.org/#/reference/overview',
     },
+    {
+      name: 'mdn docs Javascript',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    },
   ],
 
   templates: [
