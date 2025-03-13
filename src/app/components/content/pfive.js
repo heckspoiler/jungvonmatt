@@ -51,5 +51,9 @@ export const pfiveContent = {
       name: 'Mr. Bomb Music',
       url: 'https://www.youtube.com/@MrBombMusic',
     },
+    {
+      name: 'Matthew Bardin',
+      url: 'https://www.youtube.com/@MatthewBardin',
+    },
   ],
 };
